@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
+});
+
+Route::get("/placementrecord", 'recordController@showRecord');
+Route::get("/associatedrecruiter", 'recruiterController@showRecruiter');
+Route::get("/recruiterspeak", 'speakController@showSpeak');
+Route::get("/register", function (){
+	return view('pages.register');
 });
