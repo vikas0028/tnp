@@ -15,10 +15,17 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('root');
 
-Route::get("/placementrecord", 'recordController@showRecord')->name('placementrecord');
-Route::get("/associatedrecruiter", 'recruiterController@showRecruiter')->name('associatedrecruiter');
-Route::get("/recruiterspeak", 'speakController@showSpeak')->name('recruiterspeak');
-Route::get("/placementgallery", 'speakController@showSpeak')->name('placementgallery');
+Route::get("/placementrecord", 		'PageController@showRecord')
+		->name('placementrecord');
+
+Route::get("/associatedrecruiter", 	'PageController@showRecruiter')
+		->name('associatedrecruiter');
+
+Route::get("/recruiterspeak", 		'PageController@showSpeak')
+		->name('recruiterspeak');
+
+Route::get("/placementgallery", 	'PageController@showGallery')
+		->name('placementgallery');
 // Route::view("/register",'pages.register')->name('register');
 
 Auth::routes();
