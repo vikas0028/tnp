@@ -14,7 +14,7 @@
       .content-max-height{
        min-height:75vh; 
       }
-      .m-p-g__controls-arrow:focus{
+      .m-p-g__controls-arrow:focus, .m-p-g__controls-close:focus{
       	background:transparent!important;
       }
     </style>

@@ -32,6 +32,7 @@
     </div>
     <?php 
       $r_name = Route::currentRouteName();
+      // die($r_name);
     ?>
     <div class="nav-content container" align="center">
       <ul class="tabs tabs-transparent">
