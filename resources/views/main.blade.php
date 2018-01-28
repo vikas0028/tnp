@@ -12,6 +12,7 @@
       .content-max-height{
        min-height:75vh; 
       }
+       .carousel-item { height: 70vh!important; }
     </style>
 </head>
 <body class="blue-grey lighten-5">
@@ -44,8 +45,8 @@
       </ul>
     </div>
 </nav>
-<div class="container content-max-height">
-
+<div class="content-max-height">
+<div class="row"></div>
 @yield('content')
 
 </div> 
@@ -61,6 +62,11 @@
 <script type="text/javascript">
   $(document).ready(function () {
         $(".button-collapse").sideNav();
+        $('.carousel.carousel-slider').carousel({fullWidth: true});
+      
+      setInterval(function(){
+        $('.carousel').carousel('next');
+      },2000);
   })
 </script>
 </script>

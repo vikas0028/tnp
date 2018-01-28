@@ -1,13 +1,27 @@
 @extends('main')
 
 @section('content')
-<h3>Government Engineering College Modasa</h3>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
- 
+<!-- <h4 class="center" > <strong>Government Engineering College Modasa</strong></h4> -->
+ <div class="carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-fixed-item center">
+      <a href="/register" class="btn waves-effect blue darken-3 darken-text-2">Register Now !!</a>
+    </div>
+    <div class="carousel-item red white-text" href="#one!">
+      <h2>GEC Modasa</h2>
+      <p class="white-text">Great Place to Study.</p>
+    </div>
+    <div class="carousel-item amber white-text" href="#two!">
+      <h2>Training &amp; Placement Cell</h2>
+      <p class="white-text">Lead by Dr. Mahesh Goyani. </p>
+    </div>
+    <div class="carousel-item green white-text" href="#three!">
+      <h2>Campus Placements</h2>
+      <p class="white-text">Companies in our campus</p>
+    </div>
+<!--     <div class="carousel-item blue white-text" href="#four!">
+      <h2>Fourth Panel</h2>
+      <p class="white-text">This is your fourth panel</p>
+    </div> -->
+  </div>
 
 @endsection
