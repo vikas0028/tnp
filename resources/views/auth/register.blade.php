@@ -164,20 +164,20 @@
       	<div class="row">
       		<div class="file-field input-field col s6">
 		      <div class="btn">
-		        <span>File</span>
-		        <input type="file">
+		        <span>Select Image</span>
+		        <input type="file" name="avatar">
 		      </div>
 		      <div class="file-path-wrapper">
-		        <input class="file-path validate" placeholder="Upload Photo" type="text">
+		        <input class="file-path validate" accept="*.jpg,*.png,*.jpeg" placeholder="Upload Photo" type="text">
 		      </div>
 		    </div>
 		    <div class="file-field input-field col s6">
 		      <div class="btn">
-		        <span>File</span>
-		        <input type="file">
+		        <span>Select File</span>
+		        <input type="file" name="resume">
 		      </div>
 		      <div class="file-path-wrapper">
-		        <input class="file-path validate" placeholder="Upload Resume" type="text">
+		        <input class="file-path validate" accept="*.pdf" placeholder="Upload Resume" type="text">
 		      </div>
 		    </div>
       	</div>

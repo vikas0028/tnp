@@ -7,7 +7,8 @@ use App\Marks;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\Input;
+use Ramsey\Uuid\Uuid;
 class RegisterController extends Controller
 {
     /*
@@ -64,7 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // die('lol');
+
+        $r_hash = explode("-", Uuid::uuid4()->toString() );
+
+
+        $avatar = Input::file('avatar');
+        $resume = Input::file('resume');
+        $picName = $r_hash[0]."_".$avatar->getClientOriginalName();
+        $fileName = $r_hash[1]."_".$resume->getClientOriginalName();
+        
+        
+        $yoa = "20".substr($data['enrollment'], 0, 2);
+        // die($yoa);
+        $avatar->move(public_path()."/resources/avatars/".$yoa, $picName);
+        $resume->move(public_path()."/resources/resumes/".$yoa, $fileName);
+        
          Marks::create([
             'enrollment'=> $data['enrollment'],
             'sem1'=> $data['sem1'],
@@ -80,9 +95,8 @@ class RegisterController extends Controller
             'tblocks'=> $data['tblocks'],
             'cgpa'=> $data['cgpa']
          ]);
-        
-     return    User::create([
-            'name'      => "",
+         return User::create([
+            'name'      => $data['fname']." ".$data['lname'],
             'email'     => $data['email'],
             'password'  => bcrypt($data['password']),
             'enrollment'=> $data['enrollment'],
@@ -90,7 +104,7 @@ class RegisterController extends Controller
             'mname'     => $data['mname'],
             'lname'     => $data['lname'],
             'dob'       => $data['dob'],
-            'address'   => "",
+            'address'   => implode(", ", [$data['street'],$data['city'],$data['state'],$data['pincode']]),
             'city'      => $data['city'],
             'pincode'   => $data['pincode'],
             'street'    => $data['street'],
@@ -98,10 +112,8 @@ class RegisterController extends Controller
             'branch'    => $data['branch'],
             'division'  => $data['division'],
             'sem'       => $data['sem'],
-            'resume'    => "",
-            'avatar'    => ""
+            'resume'    => $yoa."/".$picName,
+            'avatar'    => $yoa."/".$fileName
         ]);
-
-         return true;
     }
 }
