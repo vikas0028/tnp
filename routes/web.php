@@ -13,11 +13,14 @@
 
 Route::get('/', function () {
     return view('pages.index');
-});
+})->name('root');
 
-Route::get("/placementrecord", 'recordController@showRecord');
-Route::get("/associatedrecruiter", 'recruiterController@showRecruiter');
-Route::get("/recruiterspeak", 'speakController@showSpeak');
-Route::get("/register", function (){
-	return view('pages.register');
-});
+Route::get("/placementrecord", 'recordController@showRecord')->name('placementrecord');
+Route::get("/associatedrecruiter", 'recruiterController@showRecruiter')->name('associatedrecruiter');
+Route::get("/recruiterspeak", 'speakController@showSpeak')->name('recruiterspeak');
+Route::get("/placementgallery", 'speakController@showSpeak')->name('placementgallery');
+// Route::view("/register",'pages.register')->name('register');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

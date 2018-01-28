@@ -27,7 +27,7 @@
 	        </div>
 	        <div class="input-field col s6">
 	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">Coonfirm Password</label>
+	          <label for="last_name">Confirm Password</label>
 	        </div>
       	</div>
  		<div class="row">
@@ -74,27 +74,27 @@
 	          <label for="last_name">State</label>
 	        </div>
       	</div>
-      	<h6>Edjucation Details</h6>
+      	<h6>Education Details</h6>
       	<div class="row">
 	      	<div class="input-field col s4">
-			    <select>
-			      <option value="" selected>Divition</option>
+			    <select required class="validate">
+			      <option disabled="" selected>Division</option>
 			      <option value="1">Option 1</option>
 			      <option value="2">Option 2</option>
 			      <option value="3">Option 3</option>
 			    </select>
 			</div>
 			<div class="input-field col s4">
-			    <select>
-			      <option value="" selected>Branch</option>
+			    <select required class="validate">
+			      <option disabled="" selected>Branch</option>
 			      <option value="1">Option 1</option>
 			      <option value="2">Option 2</option>
 			      <option value="3">Option 3</option>
 			    </select>
 			</div>
 			<div class="input-field col s4">
-			    <select>
-			      <option value="" selected>Semester</option>
+			    <select required class="validate">
+			      <option disabled selected>Semester</option>
 			      <option value="1">Option 1</option>
 			      <option value="2">Option 2</option>
 			      <option value="3">Option 3</option>
@@ -102,56 +102,57 @@
 			</div>
 		</div>
 		<div class="row">
-	        <div class="input-field col s3">
-	          <input id="first_name" type="text" class="validate">
-	          <label for="first_name">SPI sem 1</label>
+	        <div class="input-field col m2 s12">
+				SPI : 
+			</div>
+	        <div class="input-field col m1 s2">
+	          <input id="first_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="first_name">Sem 1</label>
 	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 2</label>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 2</label>
 	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 3</label>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 3</label>
 	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 4</label>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 4</label>
+	        </div>
+	        <div class="input-field col m1 s2">
+	          <input id="first_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="first_name">Sem 5</label>
+	        </div>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 6</label>
+	        </div>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 7</label>
+	        </div>
+	        <div class="input-field col m1 s2">
+	          <input id="last_name" type="number" step="0.01" min="1" max="10" class="validate">
+	          <label for="last_name">Sem 8</label>
 	        </div>
       	</div>
       	<div class="row">
 	        <div class="input-field col s3">
-	          <input id="first_name" type="text" class="validate">
-	          <label for="first_name">SPI sem 5</label>
-	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 6</label>
-	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 7</label>
-	        </div>
-	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">SPI sem 8</label>
-	        </div>
-      	</div>
-      	<div class="row">
-	        <div class="input-field col s3">
-	          <input id="first_name" type="text" class="validate">
+	          <input id="first_name" type="number" class="validate">
 	          <label for="first_name">Total Block</label>
 	        </div>
 	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
+	          <input id="last_name" type="number" class="validate">
 	          <label for="last_name">Current Block</label>
 	        </div>
 	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
+	          <input id="last_name" type="number" class="validate">
 	          <label for="last_name">CPI</label>
 	        </div>
 	        <div class="input-field col s3">
-	          <input id="last_name" type="text" class="validate">
+	          <input id="last_name" type="number" class="validate">
 	          <label for="last_name">CGPA</label>
 	        </div>
       	</div>
@@ -181,5 +182,7 @@
 
     </form>
  </div>
-
+<script type="text/javascript">
+	$('select').material_select();
+</script>
 @endsection

@@ -18,8 +18,23 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('enrollment')->unique();
+            $table->string('fname');
+            $table->string('mname') ;
+            $table->string('lname' );
+            $table->string('dob');
+            $table->string('address');
+            $table->string('city');
+            $table->string('pincode');
+            $table->string('street');
+            $table->string('state');
+            $table->string('branch');
+            $table->string('division');
+            $table->decimal('sem');
+            $table->string('resume');
+            $table->text('avatar');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

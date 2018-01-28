@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Marks;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -48,10 +49,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            // 'name' => 'required|string|max:255',
+            // 'email' => 'required|string|email|max:255|unique:users',
+            // 'password' => 'required|string|min:6|confirmed',
         ]);
+        // return true;
     }
 
     /**
@@ -62,10 +64,44 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        // die('lol');
+         Marks::create([
+            'enrollment'=> $data['enrollment'],
+            'sem1'=> $data['sem1'],
+            'sem2'=> $data['sem2'],
+            'sem3'=> $data['sem3'],
+            'sem4'=> $data['sem4'],
+            'sem5'=> $data['sem5'],
+            'sem6'=> $data['sem6'],
+            'sem7'=> $data['sem7'],
+            'sem8'=> $data['sem8'],
+            'cpi'=> $data['cpi'],
+            'cblocks'=> $data['cblocks'],
+            'tblocks'=> $data['tblocks'],
+            'cgpa'=> $data['cgpa']
+         ]);
+        
+     return    User::create([
+            'name'      => "",
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
+            'enrollment'=> $data['enrollment'],
+            'fname'     => $data['fname'],
+            'mname'     => $data['mname'],
+            'lname'     => $data['lname'],
+            'dob'       => $data['dob'],
+            'address'   => "",
+            'city'      => $data['city'],
+            'pincode'   => $data['pincode'],
+            'street'    => $data['street'],
+            'state'     => $data['state'],
+            'branch'    => $data['branch'],
+            'division'  => $data['division'],
+            'sem'       => $data['sem'],
+            'resume'    => "",
+            'avatar'    => ""
         ]);
+
+         return true;
     }
 }
