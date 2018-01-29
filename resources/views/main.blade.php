@@ -50,7 +50,7 @@
       </ul>
     </div>
 </nav>
-<div class="content-max-height">
+<div class="container content-max-height">
 <div class="row"></div>
 @yield('content')
 

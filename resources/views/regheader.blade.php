@@ -8,12 +8,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <style type="text/css">
+      .content-max-height{
+       min-height:75vh; 
+      }
+      
+        
+        
+     
+    </style>
 </head>
 <body>
 <nav class="nav-extended teal">
     <div class="nav-wrapper container">
-      <a href="#" class="brand-logo hide-on-med-and-down">Training and Placement Cell</a>
+      <a href="http://127.0.0.1:8000" class="brand-logo hide-on-med-and-down">Training and Placement Cell</a>
       <a href="#" class="brand-logo hide-on-large-only ">TNP Cell</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -26,7 +34,7 @@
       </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container content-max-height">
 
 @yield('content')
 
