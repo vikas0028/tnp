@@ -21,7 +21,7 @@
       <div class="row">
       	<div class="input-field col s8">
           <i class="material-icons prefix">lock</i>
-          <input type="Password" name="password" class="validate {{ $errors->has('password') ? ' has-error' : '' }}" required>
+          <input type="Password" for="icon_telephone" name="password" class="validate {{ $errors->has('password') ? ' has-error' : '' }}" required autofocus>
           	@if ($errors->has('password'))
 	            <span class="help-block">
 	                <strong>{{ $errors->first('password') }}</strong>
@@ -31,9 +31,13 @@
         </div>
       	
       </div>
+
       <button class="btn waves-effect waves-light " type="submit" name="action">Login
 		   <i class="material-icons right">send</i>
 	  </button>
+    <a class="btn btn-link waves-light" href="{{ route('password.request') }}">
+                                    Forgot Your Password ?
+                                </a>
 	  
     </form>
   </div>

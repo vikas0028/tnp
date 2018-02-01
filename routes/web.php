@@ -31,3 +31,5 @@ Route::get("/placementgallery", 	'PageController@showGallery')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/search', 'AdminController@search')->name('admin');
