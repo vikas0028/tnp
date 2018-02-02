@@ -30,6 +30,16 @@ Route::get("/placementgallery", 	'PageController@showGallery')
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/search', 'AdminController@search')->name('admin');
+
+Route::get('/test', function () {
+    return view('layouts.newapp');
+})->name('test');
+
+Route::prefix('api')->group(function(){
+	Route::get('/getFields', 'AjaxController@getFields');
+	Route::post('/getResults', 'AjaxController@getResults');
+});

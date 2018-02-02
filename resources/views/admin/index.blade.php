@@ -6,10 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title></title>
     <!-- Bootstrap core CSS -->
-	<link href="/ven/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/ven/bootstrap/css/bootstrap.min.css">
 	<!-- Custom fonts for this template -->
 	<link href="/ven/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -18,6 +19,7 @@
 
 	<!-- Custom styles for this template -->
 	<link href="/css/sb-admin.css" rel="stylesheet">
+	<script src="/js/json2csv.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -25,6 +27,7 @@
 	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
+
 	  <div class="collapse navbar-collapse" id="navbarResponsive">
 	    <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
@@ -55,21 +58,23 @@
 
 
 
+	<div class="mt-5">
 
+    	@yield('AdminContent')
 
-    @yield('AdminContent')
+	</div>
 
-
-    <script src="/ven/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="/ven/popper/popper.min.js"></script>
 	<script src="/ven/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
 
 	<!-- Plugin JavaScript -->
 	<script src="/ven/jquery-easing/jquery.easing.min.js"></script>
-	<script src="/ven/chart.js/Chart.min.js"></script>
+	<!-- <script src="/ven/chart.js/Chart.min.js"></script> -->
 
 	<!-- Custom scripts for this template -->
-	<script src="/js/sb-admin.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="/js/sb-admin.js"></script> -->
+    
   </body>
 </html>

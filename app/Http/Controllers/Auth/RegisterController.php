@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -112,8 +112,8 @@ class RegisterController extends Controller
             'branch'    => $data['branch'],
             'division'  => $data['division'],
             'sem'       => $data['sem'],
-            'resume'    => $yoa."/".$picName,
-            'avatar'    => $yoa."/".$fileName
+            'resume'    => $yoa."/".$fileName,
+            'avatar'    => $yoa."/".$picName
         ]);
     }
 }

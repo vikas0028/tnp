@@ -4,7 +4,7 @@
 <h3 align="center">Student Login</h3>
 
 <div class="row" style="margin-left: 230px;margin-top: 50px;">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="{{ route('login') }}">
     	{{ csrf_field() }}
       <div class="row">
         <div class="input-field col s8">
