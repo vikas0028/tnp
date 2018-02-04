@@ -12,6 +12,9 @@
       .content-max-height{
        min-height:75vh; 
       }
+      ::placeholder{
+        color : #616161;
+      }
       
         
         

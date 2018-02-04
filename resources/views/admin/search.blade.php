@@ -2,6 +2,7 @@
 
 @section('AdminContent')
 
+  
 <div class="content-wrapper" id="app">
     <div v-cloak>
       <div class="container-fluid">
@@ -16,12 +17,21 @@
           <div class="col-lg-12">
             
             <div class="card mb-3">
-              <div class="card-header">
+              <!-- <div class="card-header">
                 <i class="fa fa-search"></i>
                 Search Query
-              </div>
+              </div> -->
               <div class="card-body">
                 <form v-on:submit.prevent="onSubmit">
+
+                  <div class="card-header">
+                       
+                        <div class="form-group col-md-12">
+                          <i class="fa fa-search"></i>
+                           <label class="col-form-label">Search Query</label>
+                           <input type="text" name="querystring" v-model = "querystring" class="form-control mb-6 mb-sm-0">
+                        </div>
+                  </div>
                   
                   <div class="form-row" style="border-bottom: 1px solid gray;" v-for="element in elements">
                   
@@ -31,7 +41,7 @@
                     <div class="form-group col-md-3">
                       <label for="inputEmail4" class="col-form-label">Field</label>
                         
-                      <select class="custom-select" v-bind:name="element.field" v-model="element.fieldVal" style="width: 100% !important" required>
+                      <select class="custom-select" v-bind:name="element.field" v-model="element.fieldVal" style="width: 100% !important" >
                         
                       <!-- <select class="custom-select" style="width: 100% !important" required> -->
                         <option value="">Choose Field</option>
@@ -41,7 +51,7 @@
                     <div class="form-group col-md-3">
                       <label for="inputEmail4" class="col-form-label">Comparision Operator</label>
                         
-                      <select class="custom-select" v-bind:name="element.compare" v-model="element.compareVal" style="width: 100% !important" required>
+                      <select class="custom-select" v-bind:name="element.compare" v-model="element.compareVal" style="width: 100% !important" >
                         
                       <!-- <select class="custom-select" style="width: 100% !important" required> -->
                         <option value="">Choose Comparision Operator</option>
@@ -53,7 +63,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputEmail4" class="col-form-label">Value</label>
-                      <input type="text" class="form-control mb-2 mb-sm-0" id="inlineFormInput" placeholder="Value" v-bind:name="element.value" v-model="element.valueVal" required>
+                      <input type="text" class="form-control mb-2 mb-sm-0" id="inlineFormInput" placeholder="Value" v-bind:name="element.value" v-model="element.valueVal" >
                       <!-- <input type="text" class="form-control mb-2 mb-sm-0" id="inlineFormInput" placeholder="Value"  required> -->
                     </div>
                     <div class="form-group col-md-3">
@@ -69,7 +79,7 @@
                     </div>
                   </div>
                   <div class="form-row" style="margin-top: 5px;">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <button class="btn btn-primary" id="btn-search" type="submit">Search</button>
                   </div>
                 </form>
               </div>
@@ -117,6 +127,11 @@
  <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-flash-1.5.1/datatables.min.js"></script>
+ 
+ 
+  
  <script type="text/javascript">
    $.ajaxSetup({
     headers: {
@@ -125,11 +140,36 @@
   });
  </script>
  <script type="text/javascript">
+   
+   $(document).ready(function(){
+
+    $('#dataTable').DataTable( {
+              dom: 'Bfrtip',
+              buttons: [
+                  'copyHtml5', 'csvHtml5', 'excelHtml5', 'pdf', 'print'
+              ]
+          } );
+
+
+   });
+
+   // $('#dataTable').DataTable( {
+   //            dom: 'Bfrtip',
+   //            buttons: [
+   //                'copy', 'csv', 'excel', 'pdf', 'print'
+   //            ]
+   //        } );
+    
+
+
+ </script>
+ <script type="text/javascript">
   
       var app = new Vue({
         el: '#app',
         delimiters : ['<%', '%>'],
         data: {
+            querystring: "",
             elements: [],
             fields:[],
             results:[],
@@ -198,13 +238,32 @@
 
             }
             // console.log(string);
+            var q1 = self.querystring;
+            console.log(string);
+            
 
             $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:string},
              function (response) {
                 // console.log(response);
                 self.results=response;
                 self.process=false;
-             })
+             });
+
+            if (string == null) {
+
+              $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:q1},
+             function (response) {
+                // console.log(response);
+                self.results=response;
+                self.process=false;
+             });
+
+
+            }
+
+            
+
+            
           },
           convert:function () {
             var self=this;

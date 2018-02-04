@@ -30,7 +30,9 @@ Route::get("/placementgallery", 	'PageController@showGallery')
 
 Auth::routes();
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::get('/profile/', 'ProfileController@index')->name('profile');
+// Route::get('/profile/{id}/edit', 'ProfileController@edit');
+// Route::put('/profile/{id}/', 'ProfileController@update');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/search', 'AdminController@search')->name('admin');
@@ -42,4 +44,11 @@ Route::get('/test', function () {
 Route::prefix('api')->group(function(){
 	Route::get('/getFields', 'AjaxController@getFields');
 	Route::post('/getResults', 'AjaxController@getResults');
+});
+
+Route::prefix('profile')->group(function(){
+	Route::get('/', 'ProfileController@index')->name('profile');
+	Route::get('/{id}/edit', 'ProfileController@edit');
+	Route::put('/{id}', 'ProfileController@update');
+
 });

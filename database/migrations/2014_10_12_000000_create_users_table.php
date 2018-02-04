@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('mname') ;
             $table->string('lname' );
             $table->string('dob');
+            $table->string('contact');
             $table->string('address');
             $table->string('city');
             $table->string('pincode');
@@ -30,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('branch');
             $table->string('division');
-            $table->decimal('sem');
+            $table->integer('sem');
             $table->string('resume');
             $table->text('avatar');
             $table->rememberToken();

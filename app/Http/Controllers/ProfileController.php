@@ -30,4 +30,18 @@ class ProfileController extends Controller
         
         return view('profile')->with('user', $user);
     }
+    public function edit($id){
+
+        $user = User::find($id);
+
+        return view('edit',compact('user'));
+    }
+    public function update(Request $req, $id){
+
+        dd($id)->with($id);
+        $user = User::find($id);
+        $user = $req->all();
+        $user->update();
+        return redirect('/profile')->with($id);
+    }
 }

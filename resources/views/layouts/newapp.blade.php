@@ -53,5 +53,13 @@
 	// 	$(".button-collapse").sideNav('show');
 	// });
 </script>
+
+<footer class="deep-purple darken-4 fixed-bottom">
+  <div class="footer-copyright">
+    <div class="container" align="center">
+    © 2018 Government Engineering College Modasa
+    </div>
+  </div>
+</footer> 
 </body>
 </html>
