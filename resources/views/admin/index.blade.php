@@ -24,6 +24,12 @@
 	<link href="/css/sb-admin.css" rel="stylesheet">
 	<script src="/js/json2csv.js"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"> -->
+
+
+
+
+
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -63,9 +69,9 @@
 
 
 	<div class="mt-5">
-
+<div class="container-flued">
     	@yield('AdminContent')
-
+</div>
 	</div>
 
    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->

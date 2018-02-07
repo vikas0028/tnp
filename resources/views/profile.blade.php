@@ -33,7 +33,7 @@
 	<main class="floater-main  white z-depth-1">	
 		<div class="row">
 			<div class="gallery-action right" >
-	             <a class="orange btn-floating btn-large waves-effect waves-light k" href="{{ url('/profile/'.$user->id.'/edit')
+	             <a class="orange btn-floating btn-large waves-effect waves-light k" href="{{ url('/profile/edit')
 	            }} " ><i class="material-icons">edit</i></a>
 	        </div>
 	        <div class="col s8 m3">    	

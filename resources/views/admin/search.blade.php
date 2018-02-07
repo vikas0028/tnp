@@ -98,7 +98,8 @@
                 <div v-if="process==false">
                   <div class="text text-center" v-if="results.length < 1"><h4>No Results</h4></div>
                   
-                  <div class="table-responsive" v-if="results.length > 0">
+                  <div class="table-responsive" v-if="results.length > 0" >
+                    <dir id="exp-btn"></dir>
                     <table class="table table-bordered" width="100%"  id="dataTable" cellspacing="0">
                         <thead>
                           <tr>
@@ -127,9 +128,47 @@
  <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-flash-1.5.1/datatables.min.js"></script>
  
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js" ></script>
+  <script type="text/javascript">
+   
+  $(document).ready(function(){
+
+  var table =   $('#dataTable').DataTable( {
+        // dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+
+
+
+
+   
+
+    
+
+  });
+
+    
+
+
+  
+
+  
+
+ </script>
  
   
  <script type="text/javascript">
@@ -139,30 +178,7 @@
     }
   });
  </script>
- <script type="text/javascript">
-   
-   $(document).ready(function(){
-
-    $('#dataTable').DataTable( {
-              dom: 'Bfrtip',
-              buttons: [
-                  'copyHtml5', 'csvHtml5', 'excelHtml5', 'pdf', 'print'
-              ]
-          } );
-
-
-   });
-
-   // $('#dataTable').DataTable( {
-   //            dom: 'Bfrtip',
-   //            buttons: [
-   //                'copy', 'csv', 'excel', 'pdf', 'print'
-   //            ]
-   //        } );
-    
-
-
- </script>
+ 
  <script type="text/javascript">
   
       var app = new Vue({
@@ -204,6 +220,15 @@
               conVal: ""
             });
           },
+          Search:function(string){
+            var self = this;
+            $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:string},
+             function (response) {
+                 console.log(response);
+                self.results=response;
+                self.process=false;
+             });
+          },
           log:function (argument) {
               console.log(argument);
               return argument;
@@ -227,39 +252,27 @@
           onSubmit:function () {
             var self = this;
             self.process=true;
-            var string="";
-            for (var i = 0; i < self.elements.length; i++) {
-                // console.log(self.elements[i]);
+            var string = self.querystring;
 
-              var string = string + self.elements[i].fieldVal;
-              var string = string + " " +self.elements[i].compareVal;
-              var string = string + " '" +self.elements[i].valueVal+"'";
-              var string = string + " "+self.elements[i].conVal+" ";
+            if (string.length == 0) {
 
+
+              for (var i = 0; i < self.elements.length; i++) {
+                  // console.log(self.elements[i]);
+
+                var string = string + self.elements[i].fieldVal;
+                var string = string + " " +self.elements[i].compareVal;
+                var string = string + " '" +self.elements[i].valueVal+"'";
+                var string = string + " "+self.elements[i].conVal+" ";
+              }
             }
             // console.log(string);
-            var q1 = self.querystring;
+            
             console.log(string);
             
 
-            $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:string},
-             function (response) {
-                // console.log(response);
-                self.results=response;
-                self.process=false;
-             });
-
-            if (string == null) {
-
-              $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:q1},
-             function (response) {
-                // console.log(response);
-                self.results=response;
-                self.process=false;
-             });
-
-
-            }
+            self.Search(string);
+            
 
             
 

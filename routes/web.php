@@ -48,7 +48,7 @@ Route::prefix('api')->group(function(){
 
 Route::prefix('profile')->group(function(){
 	Route::get('/', 'ProfileController@index')->name('profile');
-	Route::get('/{id}/edit', 'ProfileController@edit');
-	Route::put('/{id}', 'ProfileController@update');
+	Route::get('/edit', 'ProfileController@edit');
+	Route::post('/update', 'ProfileController@update');
 
 });

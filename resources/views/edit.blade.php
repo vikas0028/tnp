@@ -4,25 +4,26 @@
 <div class="container content-max-height">
 <h3 align="center">Edit Profile</h3>
  <div class="row">
-    <form class="col s12" id="reg-form" action="{{ url('/Profile/'.$user->id) }}" method="POST" >
+    <form class="col s12" id="reg-form" action="{{ url('/profile/update') }}" method="POST" >
     	<h6>Personal Details</h6>
-    	{{ method_field('PATCH') }}
+    	
     	{{ csrf_field()}}
-    	<!-- <div class="row">
-	        <div class="input-field col s4">
+    	<input type="hidden" name="id" value="{{ $user->id }}">
+    	<div class="row">
+	        <div class="input-field col s12">
 	          <input id="enrollment"  name="enrollment" type="text" value="{{ $user->enrollment }}"  placeholder="Emrollment" disabled>
 	          <label for="enrollment" class="k" >Enrollment</label>
 	        </div>
 
-	        <div class="input-field col s4">
-	          <input  name="password" type="text" class="validate" placeholder="password" id="pass">
+	        <!-- <div class="input-field col s4">
+	          <input  name="password" type="text" class="validate" placeholder="password" id="pass" disabled>
 	          <label >Password</label>
 	        </div>
 	        <div class="input-field col s4">
 	          <input  name="confirm_password" type="text" class="validate" placeholder="comfirm password">
 	          <label >Confirm Password</label>
-	        </div>
-      	</div> -->
+	        </div> -->
+      	</div>
  		<div class="row">
 	        <div class="input-field col s4">
 	          <input  name="fname" type="text" class="validate" value="{{ $user->fname }}" placeholder="First Name">
@@ -47,7 +48,7 @@
 	          <label >Contact Number</label>
 	        </div>
 	        <div class="input-field col s4">
-	          <input type="date" name="dob" class="datepicker" value="{{ $user->dob }}" placeholder="Date of Birth">
+	          <input type="date" name="dob" class="datepicker" id="dob"  placeholder="Date of Birth" required>
 	          <label >Date Of Birth</label>
 	        </div>
       	</div>
@@ -81,8 +82,8 @@
 			    </select>
 			</div>
 			<div class="input-field col s4">
-			    <select required class="validate" name="branch">
-			      <option disabled="" selected>Branch</option>
+			    <select required class="validate" name="branch" disabled>
+			      <option disabled>Branch</option>
 			      <option value="CE">CE</option>
 			      <option value="IT" selected>IT</option>
 			      
@@ -191,6 +192,8 @@
  
 <script type="text/javascript">
 	$('select').material_select();
+	// $('#dob').datepicker('setDate',new Date({{ $user->dob }}));
+
 </script>
 
 
