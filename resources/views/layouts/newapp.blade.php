@@ -19,7 +19,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script src="/js/json2csv.js"></script>
 </head>
 <body>
 
@@ -47,16 +46,20 @@
 	 @yield('content')
 
 
-<script src="{{ asset('js/app.js') }}"></script>
+<!-- <script src="{{ asset('js/app.js') }}"></script> -->
+
+
+<script src="/js/json2csv.js"></script>
 <script type="text/javascript">
 	// $(document).ready(function(){
 	// 	$(".button-collapse").sideNav('show');
+  // $('.model').model();
 	// });
 </script>
 
 <footer class="deep-purple darken-4 fixed-bottom">
   <div class="footer-copyright">
-    <div class="container" align="center">
+    <div class="container white-text" align="center">
     © 2018 Government Engineering College Modasa
     </div>
   </div>

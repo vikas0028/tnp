@@ -33,9 +33,29 @@
 	<main class="floater-main  white z-depth-1">	
 		<div class="row">
 			<div class="gallery-action right" >
-	             <a class="orange btn-floating btn-large waves-effect waves-light k" href="{{ url('/profile/edit')
-	            }} " ><i class="material-icons">edit</i></a>
+	             <a class="orange btn-floating btn-large waves-effect waves-light k tooltipped" href="{{ url('/profile/edit')
+	            }} " data-position="right" data-delay="10" data-tooltip="Edit Profile" ><i class="material-icons" >edit</i></a>
+	            
+	            <a class="orange btn-floating btn-large waves-effect waves-light k modal-trigger tooltipped" 
+	            href="#model1" data-position="right" id="pass" onclick="return ForModel()"  data-delay="10" data-tooltip="Change Password" ><i class="material-icons" >lock</i></a>
 	        </div>
+
+	        <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <h4>Modal Header</h4>
+			      <p>A bunch of text</p>
+			    </div>
+			    <div class="modal-footer">
+			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			    </div>
+			  </div>
+
+
+
+
+
+
+
 	        <div class="col s8 m3">    	
 		        <div class="img-parent-cont z-depth-2" >
 					<!-- <img src="https://goo.gl/bZskn9"> -->
@@ -51,13 +71,19 @@
 	            <div class="col s12 m6">
 		          <div class="card light-green darken-1">
 		            <div class="card-content white-text">
-		              <span class="card-title">{{ $user->enrollment}} </span>
+		              <span class="card-title">{{ $user->enrollment}} 
+		              	<strong> <a class="white-text">{{ $user->branch }} - {{$user->division}}</a>
+		              <a class="white-text">SEM {{ $user->sem }}</a> </strong>
+
+		              </span>
 		              <span class="card-title">{{ $user->cpi }} <strong>CPI </strong></span>
 		              <span class="card-title">{{ $user->cgpa }} <strong>CGPA </strong></span>
+		              
 		            </div>
 		            <div class="card-action green">
-		              <a class="white-text">{{ $user->branch }} - {{$user->division}}</a>
-		              <a class="white-text">SEM {{ $user->sem }}</a>
+		             
+		              <a class="white-text">Total Block : {{ $user->tblocks }}</a>
+		              <a class="white-text">Current Block  : {{ $user->cblocks }}</a>
 		            </div>
 		          </div>
 		        </div>
@@ -75,8 +101,9 @@
 		              <p> {{$user->address}} </p>
 		            </div>
 		            <div class="card-action light-blue">
-		              <a class="white-text">{{ $user->branch }} - {{$user->division}}</a>
-		              <a class="white-text">SEM {{ $user->sem }}</a>
+		              <!-- <a class="white-text">{{ $user->branch }} - {{$user->division}}</a>
+		              <a class="white-text">SEM {{ $user->sem }}</a> -->
+		              &nbsp
 		            </div>
 		          </div>
 		        </div>	
@@ -111,9 +138,34 @@
 
 </div>
 <script type="text/javascript">
-	$(document).ready(function () {
-		$('body').addClass('deep-purple lighten-3');
-	})
+	
+	function ForModel(){
+
+		$('.modal').modal();
+		$('#modal1').modal('open');
+		$('.trigger-modal').modal();
+
+	}
+
+	
+	
+
+</script>
+<script type="text/javascript">
+	
+
+
+		$(document).ready(function () {
+		
+			
+			$('body').addClass('deep-purple lighten-3');
+	
+
+		});
+
+
+	
+	
 
 </script>
 @endsection

@@ -95,14 +95,15 @@
               </div>
               <div class="card-body" style="overflow-x: scroll;">
                 <div class="text text-center" v-if="process"><h4>Searching...</h4></div>
-                <div v-if="process==false">
-                  <div class="text text-center" v-if="results.length < 1"><h4>No Results</h4></div>
-                  
-                  <div class="table-responsive" v-if="results.length > 0" >
+                <div >
+                  <!-- <div class="text text-center" v-if="results.length < 1"><h4>No Results</h4></div> -->
+                  <!-- <div class="table-responsive" v-if="results.length > 0" > -->
+                    <div>
                     <dir id="exp-btn"></dir>
                     <table class="table table-bordered" width="100%"  id="dataTable" cellspacing="0">
                         <thead>
                           <tr>
+                            <!-- <th>lol</th> -->
                             <th v-for="field in fields">  
                                 <% fieldFormat(field) %>
                             </th>
@@ -114,6 +115,9 @@
                                 <% item[fieldFormat(field)] %>
                             </td>
                           </tr>
+                          <!-- <tr>
+                            <td>lol</td>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -142,23 +146,17 @@
    
   $(document).ready(function(){
 
-  var table =   $('#dataTable').DataTable( {
+  table = $('#dataTable').DataTable( {
         // dom: 'Bfrtip',
         buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
+            'copy',
+            'csv',
+            'excel',
+            'pdf'
         ]
-    } );
-
-
-
-
-   
-
-    
-
+    });
+  table.buttons().container()
+    .appendTo( $('span', table.table().container() ) );
   });
 
     
@@ -227,6 +225,7 @@
                  console.log(response);
                 self.results=response;
                 self.process=false;
+                table.ajax.reload();
              });
           },
           log:function (argument) {
@@ -269,13 +268,7 @@
             // console.log(string);
             
             console.log(string);
-            
-
             self.Search(string);
-            
-
-            
-
             
           },
           convert:function () {
