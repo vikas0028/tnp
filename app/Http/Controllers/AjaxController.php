@@ -22,7 +22,8 @@ class AjaxController extends Controller
     	$marksCol = array_values(
 							array_diff(
 									DB::getSchemaBuilder()->getColumnListing((new Marks())->getTable()),
-									['id', 'created_at','updated_at','enrollment']
+									['id', 'created_at','updated_at','enrollment','sem1','sem2','sem3'
+									,'sem4','sem5','sem6','sem7','sem8']
 							  )
 					);
 

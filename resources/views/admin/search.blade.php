@@ -1,6 +1,31 @@
 @extends('admin.index')
 
 @section('AdminContent')
+<script src="/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/tableExport.js"></script>
+<script type="text/javascript" src="/js/jquery.base64.js"></script>
+<script type="text/javascript" src="/js/jspdf.js"></script>
+<script type="text/javascript" src="/js/sprintf.js"></script>
+<script type="text/javascript" src="/js/base64.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#pdf').click(function(){
+
+      $('#dataTable').tableExport({
+
+        type:'pdf',
+        escape:'flase'
+
+      });
+    
+    });
+
+
+  });
+</script>
+
 
   
 <div class="content-wrapper" id="app">
@@ -24,11 +49,21 @@
               <div class="card-body">
                 <form v-on:submit.prevent="onSubmit">
 
-                  <div class="card-header">
-                       
-                        <div class="form-group col-md-12">
+                  <div class="card-header form-row" v-for="element in elements">
+
+                        <div class="form-group col-md-3">
+                          <label for="inputEmail4" class="col-form-label">Field</label>
+                            
+                          <select class="custom-select" v-bind:name="element.field" v-model="element.fieldVal" style="width: 100% !important" >
+                            
+                          <!-- <select class="custom-select" style="width: 100% !important" required> -->
+                            <option value="">Choose Field</option>
+                            <option v-for="field in fields" v-bind:name="field" :value="field"> <% field.split('.').pop() %> </option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
                           <i class="fa fa-search"></i>
-                           <label class="col-form-label">Search Query</label>
+                           <label class="col-form-label">Search Field</label>
                            <input type="text" name="querystring" v-model = "querystring" class="form-control mb-6 mb-sm-0">
                         </div>
                   </div>
@@ -91,10 +126,18 @@
             <div class="card mb-3">
               <div class="card-header">
                 <i class="fa fa-table"></i>
-                Data Table <button class="btn btn-link green-text text-success" style="padding: 0px; float: right;" v-on:click="convert"><i class="fa fa-file-excel-o" aria-hidden="true"></i>  Export As CSV</button>
+                Data Table
+
+                  <button class="btn btn-link" id="exc" download="abc.xls" >
+                    Export Excel
+                  </button>
+                  <button id="pdf" class="btn btn-link"  >
+                    Export PDF
+                  </button>
+                 <button class="btn btn-link green-text text-success" style="padding: 0px; float: right;" v-on:click="convert"><i class="fa fa-file-excel-o" aria-hidden="true"></i>  Export As CSV</button>
               </div>
               <div class="card-body" style="overflow-x: scroll;">
-                <div class="text text-center" v-if="process"><h4>Searching...</h4></div>
+               <!--  <div class="text text-center" v-if="process"><h4>Searching...</h4></div> -->
                 <div >
                   <!-- <div class="text text-center" v-if="results.length < 1"><h4>No Results</h4></div> -->
                   <!-- <div class="table-responsive" v-if="results.length > 0" > -->
@@ -129,25 +172,32 @@
     </div>
     </div>
   </div>
- <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+ <script src="/js/vue.js"></script>
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script> -->
+ 
+ <script type="text/javascript" src="/js/excelexportjs.js"></script>
+ <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script> -->
+ <!-- <script type="text/javascript" src="/js/jspdf.js"></script> -->
+ 
  
 
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js" ></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js" ></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" ></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js" ></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js" ></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js" ></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js" ></script>
-  <script type="text/javascript">
+<!-- <script type="text/javascript" src="/js/jquery.dataTables.min.js" ></script>
+<script type="text/javascript" src="/js/dataTables.buttons.min.js" ></script>
+<script type="text/javascript" src="/js/buttons.flash.min.js" ></script>
+<script type="text/javascript" src="/js/jszip.min.js" ></script>
+<script type="text/javascript" src="/js/pdfmake.min.js" ></script>
+<script type="text/javascript" src="/js/vfs_fonts.js" ></script>
+<script type="text/javascript" src="/js/buttons.html5.min.js" ></script>
+<script type="text/javascript" src="/js/buttons.print.min.js" ></script> -->
+  <!-- <script type="text/javascript">
    
   $(document).ready(function(){
 
+
+
   table = $('#dataTable').DataTable( {
-        // dom: 'Bfrtip',
+        dom: 'Bfrtip',
         buttons: [
             'copy',
             'csv',
@@ -156,8 +206,8 @@
         ]
     });
   table.buttons().container()
-    .appendTo( $('span', table.table().container() ) );
-  });
+    .appendTo( $('#exp-btn', table.table().container() ) );
+   });
 
     
 
@@ -166,7 +216,131 @@
 
   
 
+ </script> -->
+
+<!-- <script type="text/javascript">
+    jQuery(function ($) {
+        $("#pdf").click(function () {
+            // parse the HTML table element having an id=exportTable
+            var dataSource = shield.DataSource.create({
+                data: "#dataTable",
+                schema: {
+                    type: "table",
+                    fields: {
+                        email: { type: String },
+                        enrollment: { type: String },
+                        fname: { type: String },
+                        mname: { type: String },
+                        lname: { type: String },
+                        dob: { type: String },
+                        gender: { type: String },
+                        contact: { type: String },
+                        city: { type: String },
+                        pincode: { type: String },
+                        street: { type: String },
+                        state: { type: String },
+                        branch: { type: String },
+                        division: { type: String },
+                        sem: { type: String },
+                        cpi: { type: String },
+                        cgpa: { type: String },
+                        cblocks: { type: String },
+                        tblocks: { type: String }
+                    }
+                }
+            });
+
+            // when parsing is done, export the data to PDF
+            dataSource.read().then(function (data) {
+                var pdf = new shield.exp.PDFDocument({
+                    author: "PrepBootstrap",
+                    created: new Date()
+                });
+
+                pdf.addPage("a4", "portrait");
+
+                pdf.table(
+                    50,
+                    50,
+                    data,
+                    [
+                        { field: "email", title: "email", width: 50 },
+                        { field: "enrollment", title: "enrollment", width: 50 },
+                        { field: "fname", title: "fname", width: 50 },
+                        { field: "mname", title: "mname", width: 50 },
+                        { field: "lname", title: "lname", width: 50 },
+                        { field: "dob", title: "dob", width: 50 },
+                        { field: "gender", title: "gender", width: 50 },
+                        { field: "contact", title: "contact", width: 50 },
+                        { field: "city", title: "city", width: 50 },
+                        { field: "pincode", title: "pincode", width: 50 },
+                        { field: "street", title: "street", width: 50 },
+                        { field: "state", title: "state", width: 50 },
+                        { field: "branch", title: "branch", width: 50 },
+                        { field: "division", title: "division", width: 50 },
+                        { field: "sem", title: "sem", width: 50 },
+                        { field: "cpi", title: "cpi", width: 50 },
+                        { field: "cgpa", title: "cgpa", width: 50 },
+                        { field: "cblocks", title: "cblocks", width: 50 },
+                        { field: "tblocks", title: "tblocks", width: 50 }
+                        
+                    ],
+                    {
+                        margins: {
+                            top: 50,
+                            left: 50
+                        }
+                    }
+                );
+
+                pdf.saveAs({
+                    fileName: "PrepBootstrapPDF"
+                });
+            });
+        });
+    });
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <script type="text/javascript">
+   
+   $(document).ready(function(){
+
+      $('#exc').click(function(){
+
+          $('dataTable').excelexportjs({
+
+              containerid:"dataTable",
+              type:'table'
+
+          });
+
+      });
+
+      
+
+   });
+
  </script>
+
  
   
  <script type="text/javascript">
@@ -188,6 +362,7 @@
             fields:[],
             results:[],
             process:false,
+            toReInit:false,
         },
         created:function () {
           var self=this;
@@ -202,7 +377,38 @@
               self.fields = schema.user.concat( schema.marks );
           });
         },
+      // updated:function(){
+      //       console.log(this.toReInit)
+      //   if( this.toReInit ){
+                
+      //           // window.table.destroy();
+      //           table = $('#dataTable').DataTable( {
+      //               dom: 'Bfrtip',
+      //               buttons: [
+      //                   'copy',
+      //                   'csv',
+      //                   'excel',
+      //                   'pdf'
+      //               ]
+      //           });
+      //         table.buttons().container()
+      //           .appendTo( $('#exp-btn', table.table().container() ) );
+               
+      //         this.toReInit = false;  
+      //   }
+      // },
         methods:{
+          Search:function(string){
+            var self = this;
+            $.post('/api/getResults', 
+                  {'_token':$('[name=csrf-token]').attr('content'), q:string},
+                 function (response) {
+                     //console.log(response);
+                    self.results=response;
+                    // self.toReInit = true;
+                    // self.process=false;
+            });
+          },
           add:function () {
             var self =this;
             var newL = self.elements.length + 1;
@@ -217,16 +423,6 @@
               connector: "connector" + newL,
               conVal: ""
             });
-          },
-          Search:function(string){
-            var self = this;
-            $.post('/api/getResults', {'_token':$('[name=csrf-token]').attr('content'), q:string},
-             function (response) {
-                 console.log(response);
-                self.results=response;
-                self.process=false;
-                table.ajax.reload();
-             });
           },
           log:function (argument) {
               console.log(argument);
@@ -251,7 +447,12 @@
           onSubmit:function () {
             var self = this;
             self.process=true;
+            
+            
             var string = self.querystring;
+
+            
+            
 
             if (string.length == 0) {
 
@@ -263,12 +464,20 @@
                 var string = string + " " +self.elements[i].compareVal;
                 var string = string + " '" +self.elements[i].valueVal+"'";
                 var string = string + " "+self.elements[i].conVal+" ";
+                
               }
+              self.Search(string);
             }
-            // console.log(string);
+            else{
+
+              for(var i = 0;i < self.elements.length; i++){
+
+                var qs = self.elements[i].fieldVal + " = " + "'" + self.querystring + "'";
+              }
+
+              self.Search(qs);
+            }
             
-            console.log(string);
-            self.Search(string);
             
           },
           convert:function () {

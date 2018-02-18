@@ -33,11 +33,14 @@
 	<main class="floater-main  white z-depth-1">	
 		<div class="row">
 			<div class="gallery-action right" >
-	             <a class="orange btn-floating btn-large waves-effect waves-light k tooltipped" href="{{ url('/profile/edit')
+
+				 <a class="teal btn-floating btn-large waves-effect waves-light k tooltipped" href="/resources/resumes/{{ $user->resume }}" data-position="right" data-delay="10" data-tooltip="Resume" ><i class="material-icons" >description</i></a>
+
+	             <a class="teal btn-floating btn-large waves-effect waves-light k tooltipped" href="{{ url('/profile/edit')
 	            }} " data-position="right" data-delay="10" data-tooltip="Edit Profile" ><i class="material-icons" >edit</i></a>
 	            
-	            <a class="orange btn-floating btn-large waves-effect waves-light k modal-trigger tooltipped" 
-	            href="#model1" data-position="right" id="pass" onclick="return ForModel()"  data-delay="10" data-tooltip="Change Password" ><i class="material-icons" >lock</i></a>
+	            <!-- <a class="teal btn-floating btn-large waves-effect waves-light k modal-trigger tooltipped" 
+	            href="#model1" data-position="right" id="pass" onclick="return ForModel()"  data-delay="10" data-tooltip="Change Password" ><i class="material-icons" >lock</i></a> -->
 	        </div>
 
 	        <div id="modal1" class="modal">
@@ -68,7 +71,7 @@
 		</div>
 		<div class="row">
 			
-	            <div class="col s12 m6">
+	            <!-- <div class="col s12 m6">
 		          <div class="card light-green darken-1">
 		            <div class="card-content white-text">
 		              <span class="card-title">{{ $user->enrollment}} 
@@ -101,9 +104,7 @@
 		              <p> {{$user->address}} </p>
 		            </div>
 		            <div class="card-action light-blue">
-		              <!-- <a class="white-text">{{ $user->branch }} - {{$user->division}}</a>
-		              <a class="white-text">SEM {{ $user->sem }}</a> -->
-		              &nbsp
+		              
 		            </div>
 		          </div>
 		        </div>	
@@ -132,6 +133,52 @@
 		        </ul>
 		    </div>
 
+ -->		<table class="striped  bordered">
+ 					<tr>
+ 						<td>Enrollment</td>
+ 						<td>{{ $user->enrollment }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Email</td>
+ 						<td>{{ $user->email  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Contact</td>
+ 						<td>{{ $user->contact  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Date Of Birth</td>
+ 						<td>{{ $user->dob  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Gender</td>
+ 						<td>{{ $user->gender  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Address</td>
+ 						<td>{{ $user->address  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Semester</td>
+ 						<td>{{ $user->sem  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Branch</td>
+ 						<td>{{ $user->branch  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Division</td>
+ 						<td>{{ $user->division  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>CPI</td>
+ 						<td>{{ $user->cpi  }}</td>
+ 					</tr>
+ 					<tr>
+ 						<td>CGPA</td>
+ 						<td>{{ $user->cgpa  }}</td>
+ 					</tr>
+ 			</table>
 	      
 		</div>
 	</main>
@@ -158,7 +205,7 @@
 		$(document).ready(function () {
 		
 			
-			$('body').addClass('deep-purple lighten-3');
+			$('body').addClass('grey lighten-2');
 	
 
 		});

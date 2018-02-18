@@ -16,7 +16,7 @@
 
 	<!-- Plugin CSS -->
 	
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/b-1.5.1/b-html5-1.5.1/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/datatables.min.css"/>
  
 
 
@@ -24,7 +24,6 @@
 	<link href="/css/sb-admin.css" rel="stylesheet">
 	<script src="/js/json2csv.js"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"> -->
-
 
 
 
@@ -77,7 +76,7 @@
    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="/ven/popper/popper.min.js"></script>
 	<script src="/ven/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"> --></script>
 
 
 	<!-- Plugin JavaScript -->

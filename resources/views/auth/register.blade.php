@@ -46,17 +46,29 @@
 	        </div>
       	</div>
       	<div class="row">
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input  name="email" type="email" class="validate" placeholder="Email">
 	          <!-- <label >Email</label> -->
 	        </div>
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input  name="contact" type="number" class="validate" placeholder="Contact Number">
 	          <!-- <label >Contact Number</label> -->
 	        </div>
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input type="date" name="dob" class="datepicker" placeholder="Date of Birth">
 	          <!-- <label >Date Of Birth</label> -->
+	        </div>
+	        <div class="input-field col s3">
+	         		<!-- <input name="group1" type="radio" value="Male"  id="test1" class="with-gap gen" />
+      					<label for="test1">Male</label>
+      				<input name="group1" type="radio" value="Female" id="test2" class="with-gap gen" />
+      					<label for="test2">Female</label> -->
+      				<select required name="gender" class="validate">
+				      <option  disabled selected>Gender</option>
+				      <option value="Male">Male</option>
+				      <option value="Female">Female</option>
+				    </select>
+
 	        </div>
       	</div>
       	<div class="row">
@@ -198,5 +210,6 @@
  
 <script type="text/javascript">
 	$('select').material_select();
+	$('.gen').material_radio();
 </script>
 @endsection

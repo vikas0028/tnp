@@ -104,6 +104,7 @@ class RegisterController extends Controller
             'mname'     => $data['mname'],
             'lname'     => $data['lname'],
             'dob'       => $data['dob'],
+            'gender'    => $data['gender'],
             'contact'   => $data['contact'],
             'address'   => implode(", ", [$data['street'],$data['city'],$data['state'],$data['pincode']]),
             'city'      => $data['city'],
