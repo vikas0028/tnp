@@ -2,7 +2,7 @@
 
 @section('AdminContent')
 <script src="/js/jquery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
 <script type="text/javascript" src="/js/tableExport.js"></script>
 <script type="text/javascript" src="/js/jquery.base64.js"></script>
 <script type="text/javascript" src="/js/jspdf.js"></script>
@@ -11,17 +11,25 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
+  doc = new jsPDF();
+
     $('#pdf').click(function(){
 
-      $('#dataTable').tableExport({
+      var pd = $('#dataTable').tableExport({
 
         type:'pdf',
         escape:'flase'
 
+
       });
+
+      
+      doc.saveAs(pd+'.pdf');
+      pd = null;
     
     });
-
+    
+    
 
   });
 </script>

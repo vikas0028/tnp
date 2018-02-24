@@ -123,6 +123,20 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="input-field col s4">
+	          <input  name="ssc" type="number" class="validate" step="0.01"  min="1" max="100" placeholder="SSC">
+	          <!-- <label >Pincode</label> -->
+	        </div>
+	        <div class="input-field col s4">
+	          <input  name="hsc" type="number" class="validate" step="0.01" min="1" max="100" placeholder="HSC">
+	          <!-- <label >City</label> -->
+	        </div>
+	        <div class="input-field col s4">
+	          <input  name="diplomacgpa" type="number" class="validate" step="0.01" min="1" max="10" placeholder="Diploma CGPA">
+	          <!-- <label >State</label> -->
+	        </div>
+		</div>
+		<div class="row">
 	        <div class="input-field col m2 s12">
 				SPI : 
 			</div>

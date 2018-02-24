@@ -16,6 +16,9 @@ class CreateMarksTable extends Migration
         Schema::create('marks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('enrollment');
+            $table->decimal('ssc');
+            $table->decimal('hsc');
+            $table->decimal('diplomacgpa');
             $table->decimal('sem1');
             $table->decimal('sem2');
             $table->decimal('sem3');

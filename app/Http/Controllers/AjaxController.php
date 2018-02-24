@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Marks;
+use App\Record;
+use App\Company;
 use DB;
 class AjaxController extends Controller
 {
@@ -47,5 +49,39 @@ class AjaxController extends Controller
 		
 		$results = DB::select( $q );
 		return $results;
+	}
+
+	public function addRecord(Request $req){
+
+		$record = new  Record;
+
+		$record->year = $req->year;
+		$record->companies_visited = $req->companies_visited;
+		$record->students_placed = $req->students_placed;
+		$record->save();
+        
+       
+		 $data = Record::all();
+		return $data;
+
+
+	}
+	public function addCompany(Request $req){
+
+		$company = new Company;
+
+		$company->name = $req->name;
+		$company->email = $req->email;
+		$company->contact = $req->contact;
+		$company->branch = $req->branch;
+		$company->year = $req->year;
+		$company->student_placed = $req->student_placed;
+		$company->package = $req->package;
+		$company->city = $req->city;
+		$company->state = $req->state;
+		$company->save();
+
+		return $company->name;
+
 	}
 }

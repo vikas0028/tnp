@@ -34,8 +34,7 @@ Auth::routes();
 // Route::get('/profile/{id}/edit', 'ProfileController@edit');
 // Route::put('/profile/{id}/', 'ProfileController@update');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/admin/search', 'AdminController@search')->name('admin');
+
 
 Route::get('/test', function () {
     return view('layouts.newapp');
@@ -44,6 +43,9 @@ Route::get('/test', function () {
 Route::prefix('api')->group(function(){
 	Route::get('/getFields', 'AjaxController@getFields');
 	Route::post('/getResults', 'AjaxController@getResults');
+	Route::post('/addRecord', 'AjaxController@addRecord');
+	Route::post('/addCompany', 'AjaxController@addCompany');
+	
 });
 
 Route::prefix('profile')->group(function(){
@@ -52,3 +54,17 @@ Route::prefix('profile')->group(function(){
 	Route::post('/update', 'ProfileController@update');
 
 });
+
+Route::prefix('admin')->group(function(){
+
+	Route::get('/', 'AdminController@index')->name('admin');
+	Route::get('/search', 'AdminController@search')->name('admin');
+	
+	Route::get('/PlacementRecord','recordController@showRecord');
+
+	Route::get('/CompanyRecord','recordController@showCompany');
+	Route::post('/CompanyRecord','recordController@addCompany');
+
+
+});
+

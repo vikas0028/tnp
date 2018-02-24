@@ -82,6 +82,9 @@ class RegisterController extends Controller
         
          Marks::create([
             'enrollment'=> $data['enrollment'],
+            'ssc'=> $data['ssc'],
+            'hsc'=> $data['hsc'],
+            'diplomacgpa'=> $data['diplomacgpa'],
             'sem1'=> $data['sem1'],
             'sem2'=> $data['sem2'],
             'sem3'=> $data['sem3'],

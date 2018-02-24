@@ -1,6 +1,16 @@
 @extends('layouts.newapp')
 
 @section('content')
+<script>
+    $(document). ready(function (){
+    
+		$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 30, // Creates a dropdown of 15 years to control year
+		    format: 'dd-mm-yyyy'
+		  });
+    });
+</script> 
 <div class="container content-max-height">
 <h3 align="center">Edit Profile</h3>
  <div class="row">
@@ -39,17 +49,29 @@
 	        </div>
       	</div>
       	<div class="row">
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input  name="email" type="email" class="validate" value="{{ $user->email }}" placeholder="Email">
 	          <label >Email</label>
 	        </div>
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input  name="contact" type="number" class="validate" value="{{ $user->contact }}" placeholder="Contact Number">
 	          <label >Contact Number</label>
 	        </div>
-	        <div class="input-field col s4">
+	        <div class="input-field col s3">
 	          <input type="date" name="dob" class="datepicker" id="dob"  placeholder="Date of Birth" required>
 	          <label >Date Of Birth</label>
+	        </div>
+	        <div class="input-field col s3">
+	         		<!-- <input name="group1" type="radio" value="Male"  id="test1" class="with-gap gen" />
+      					<label for="test1">Male</label>
+      				<input name="group1" type="radio" value="Female" id="test2" class="with-gap gen" />
+      					<label for="test2">Female</label> -->
+      				<select required name="gender" value="{{ $user->gender }}" class="validate" disabled>
+				      <option  disabled selected>Gender</option>
+				      <option value="Male">Male</option>
+				      <option value="Female">Female</option>
+				    </select>
+
 	        </div>
       	</div>
       	<div class="row">

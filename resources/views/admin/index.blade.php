@@ -25,7 +25,15 @@
 	<script src="/js/json2csv.js"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"> -->
 
-
+<script src="/js/jquery.min.js"></script>
+<style type="text/css">
+	.custom-file-input:before{
+  content: "Browse";
+}
+.custom-file-input:after{
+  content: "Add files..";
+}
+</style>
 
 
 
@@ -44,6 +52,20 @@
 	          <i class="fa fa-fw fa-search"></i>
 	          <span class="nav-link-text">
 	            search</span>
+	        </a>
+	      </li>
+	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
+	        <a class="nav-link" href="/admin/PlacementRecord">
+	          <!-- <i class="fa fa-fw fa-search"></i> -->
+	          <span class="nav-link-text">
+	             Placement Record</span>
+	        </a>
+	      </li>
+	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
+	        <a class="nav-link" href="/admin/CompanyRecord">
+	          <!-- <i class="fa fa-fw fa-search"></i> -->
+	          <span class="nav-link-text">
+	             Company Record</span>
 	        </a>
 	      </li>
 
