@@ -50,6 +50,8 @@ Route::prefix('api')->group(function(){
 
 Route::prefix('profile')->group(function(){
 	Route::get('/', 'ProfileController@index')->name('profile');
+	Route::get('/card', 'ProfileController@indexCard');
+
 	Route::get('/edit', 'ProfileController@edit');
 	Route::post('/update', 'ProfileController@update');
 
@@ -62,9 +64,19 @@ Route::prefix('admin')->group(function(){
 	
 	Route::get('/PlacementRecord','recordController@showRecord');
 
-	Route::get('/CompanyRecord','recordController@showCompany');
-	Route::post('/CompanyRecord','recordController@addCompany');
+	
 
+	Route::get('/PlacementRecord/edit/{id}', 'recordController@editRecord');
+	Route::post('/PlacementRecord/updateRecord', 'recordController@updateRecord');
+	Route::post('/PlacementRecord/DeletRecord', 'recordController@DeletRecord' );
+
+
+	Route::get('/CompanyRecord','recordController@showCompany');
+	
+
+	Route::get('/CompanyRecord/edit/{id}', 'recordController@editCompany');
+	Route::post('/CompanyRecord/updateCompany', 'recordController@updateCompany');
+	Route::post('/CompanyRecord/DeletCompany', 'recordController@DeletCompany');
 
 });
 

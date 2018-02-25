@@ -2,7 +2,7 @@
 
 @section('AdminContent')
 <div class="content-wrapper">
-<div class="container-fluid">
+<div class="container-fluid" id= "app">
 	
 	<ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -14,12 +14,12 @@
     	<div class="col-lg-12">
     		<div class="card mb-3">
     			<div class="card-body">
-    				<form method="post"  id="add-record" >
+    				<form v-on:submit.prevent="hadleSubmit" id="add-record" >
     					{{csrf_field()}}
     					<div class="form-row" >
     						<div class="col-4">
     							<label for="year">Year</label>
-    							<select name="year" id="year" class="custom-select  col-3" required>
+    							<select name="year" v-model="year" id="year" class="custom-select  col-3" required>
 								  <option selected disabled>Year</option>
 								  <option value="2018" selected>2018</option>
 								  <option value="2019">2019</option>
@@ -28,14 +28,14 @@
     						</div>
     						<div class="col-4">
     							<label for="companies_visited"> Companies Visited</label>
-    							<input type="number" name="companies_visited" id="companies_visited" class="form-control" placeholder="Companies Visited" value="5" required>
+    							<input v-model="companies_visited" type="number" name="companies_visited" id="companies_visited" class="form-control" placeholder="Companies Visited" required>
     						</div>
     						<div class="col-4">
     							<label for="students_placed"> Student Placed</label>
-    							<input type="number" name="students_placed" id="students_placed" class="form-control" placeholder="Student Placed" value="5" required>
+    							<input v-model="students_placed" type="number" name="students_placed" id="students_placed" class="form-control" placeholder="Student Placed" required>
     						</div>
     						<dir class="col-3">
-    							<button style="padding-right:30px;padding-left: 30px;" class="btn btn-primary" type="submit" id="add">Add</button>
+    							<button style="padding-right:30px;padding-left: 30px;" class="btn btn-primary" type="submit" id="add" :disabled="submitProcess"> <% submitProcess ? 'Adding..' : 'Add' %> </button>
     						</dir>
     						
     					</div>
@@ -59,23 +59,38 @@
             <div class="card mb-3">
                 <div class="card-body" style="overflow-x: scroll;overflow-y: scroll; ">
                     <div>
-                    <table class="table table-striped" width="100%">
+                    <table class="table table-striped" >
                         <thead>
                             <tr>
                                 <th>Year</th>
                                 <th>Companies Visited</th>
                                 <th>Student Placed</th>
-                                <th>Edit</th>
+                                <th colspan="2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr v-if="tableData.length > 0" v-for="t in tableData">
+                                
+                                <td> <% t.year %></td>
+                                <td> <% t.companies_visited %></td>
+                                <td> <% t.students_placed %></td>
+                                <td>  <a :href="t.href" class="btn btn-primary">Edit</a> </td>
+
+                            </tr>
                             @foreach($data as $d)
                                 <tr>
                                     <td>{{ $d->year }}</td>
                                     <td>{{ $d->companies_visited }}</td>
                                     <td>{{ $d->students_placed }}</td>
                                     <td>
-                                        <button class="btn btn-primary">Edit</button>
+                                        <a href="/admin/PlacementRecord/edit/{{$d->id}}" class="btn btn-primary">Edit</a>
+                                    </td>
+                                    <td>
+                                            <form method="post" action="{{ url('admin/PlacementRecord/DeletRecord') }}" >
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="id" value="{{ $d->id }}">
+                                                <button type="submit" class="btn btn-danger"> Delete </button>
+                                            </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -91,6 +106,7 @@
     @endforeach --}}
 </div>
 </div>
+ <script src="/js/vue.js"></script>
 <script type="text/javascript">
      $.ajaxSetup({
     headers: {
@@ -99,34 +115,46 @@
   });
 </script>
 <script type="text/javascript">
-
-
-	$(document).ready(function(){
-
-		$('#add').click(function(){
-            var _token = $('[name=csrf-token]').attr('content');
-			var year = $('#year').val();
-            var companies_visited = $('#companies_visited').val();
-            var students_placed = $('#students_placed').val();
-
-            $.ajax({
+new Vue({
+    el : "#app",
+        delimiters : ['<%', '%>'],
+     data: { 
+        tableData : [],
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            year:2018,
+            companies_visited:5,
+            students_placed:15  ,
+            submitProcess : false
+        },
+    methods :{
+        hadleSubmit: function(){
+            self = this;
+            self.submitProcess = true;
+            var dataObj = {
+                _token: this._token,
+                year:this.year,
+                companies_visited:this.companies_visited,
+                students_placed:this.students_placed  
+            };
+             $.ajax({
 
                 type: "post",
                 url: "/api/addRecord",
-                data: { 
-                    _token:_token,
-                    year:year,
-                    companies_visited:companies_visited,
-                    students_placed:students_placed  
-                }
-                // success:function(msg){
-                //     console.log(msg);
-                // }
+                data: dataObj,
+                 success:function(msg){
+                        dataObj.href= "/rec/ed/"+"1234";
+                        self.tableData.unshift(dataObj);
+                        self.submitProcess = false;
+                        console.log(self.tableData);
+                 }
 
             });
+            return false
+        }
+    }
+})
 
-		});
-	});
+	
 </script>
 
 @endsection()

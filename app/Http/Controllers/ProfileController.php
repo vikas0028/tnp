@@ -31,6 +31,14 @@ class ProfileController extends Controller
         
         return view('profile')->with('user', $user);
     }
+    public function indexCard (Request $req)
+    {
+        $user = User::where('users.enrollment',Auth::user()->enrollment)
+                ->join('marks', 'users.enrollment','=', 'marks.enrollment')->first();
+                
+        
+        return view('cardprofile')->with('user', $user);
+    }
     public function edit(){
 
         $user = User::where('users.enrollment',Auth::user()->enrollment)

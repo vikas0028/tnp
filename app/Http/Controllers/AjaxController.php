@@ -7,6 +7,7 @@ use App\User;
 use App\Marks;
 use App\Record;
 use App\Company;
+use Illuminate\Support\Facades\Input;
 use DB;
 class AjaxController extends Controller
 {
@@ -54,19 +55,22 @@ class AjaxController extends Controller
 	public function addRecord(Request $req){
 
 		$record = new  Record;
+		//sleep(5);
 
 		$record->year = $req->year;
 		$record->companies_visited = $req->companies_visited;
 		$record->students_placed = $req->students_placed;
 		$record->save();
         
-       
 		 $data = Record::all();
 		return $data;
 
 
 	}
 	public function addCompany(Request $req){
+
+		// 	$h = "hello";
+		// return $req->branch;
 
 		$company = new Company;
 
@@ -79,9 +83,11 @@ class AjaxController extends Controller
 		$company->package = $req->package;
 		$company->city = $req->city;
 		$company->state = $req->state;
+		
 		$company->save();
 
-		return $company->name;
+		$data = Company::all();
+		return $data;
 
 	}
 }

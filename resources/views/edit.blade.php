@@ -66,10 +66,10 @@
       					<label for="test1">Male</label>
       				<input name="group1" type="radio" value="Female" id="test2" class="with-gap gen" />
       					<label for="test2">Female</label> -->
-      				<select required name="gender" value="{{ $user->gender }}" class="validate" disabled>
-				      <option  disabled selected>Gender</option>
-				      <option value="Male">Male</option>
-				      <option value="Female">Female</option>
+      				<select required name="gender" class="validate" disabled>
+				      <option  disabled >Gender</option>
+				      <option {{ $user->gender == 'Male' ? 'Selected' : "" }} value="Male">Male</option>
+				      <option {{ $user->gender == 'Female' ? 'Selected' : "" }} value="Female">Female</option>
 				    </select>
 
 	        </div>

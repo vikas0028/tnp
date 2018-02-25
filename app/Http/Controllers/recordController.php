@@ -12,31 +12,75 @@ class recordController extends Controller
 
 	public function showRecord(){
 
-		 $data = Record::all();
+		 $data = Record::orderBy('year','desc')->get();
 		return view('admin.placementRecord')->with('data',$data);
 	}
 	public function showCompany(){
-
-		return view('admin.companyRecord');
-	}
-	public function addCompany(Request $req){
-
-		$company = new Company;
-
-		$company->name = $req->name;
-		$company->email = $req->email;
-		$company->contact = $req->contact;
-		$company->branch = $req->branch;
-		$company->year = $req->year;
-		$company->student_placed = $req->student_placed;
-		$company->package = $req->package;
-		$company->city = $req->city;
-		$company->state = $req->state;
-		$company->company_logo = $req->company_logo;
-		$company->save();
-
-		$data = Company::all();
+		$data = Company::orderBy('year','desc')->get();
 		return view('admin.companyRecord')->with('data',$data);
+	}
+	
+	public function editRecord(Request $req){
+
+		$data = Record::where('records.id',$req->id)->first();
+		
+		
+		return view('admin.editPlacement')->with('data',$data);
+
+	}
+	public function updateRecord(Request $req){
+
+		$data = Record::where('records.id',$req->id)->first();
+
+
+		$data->year = $req->year;
+		$data->companies_visited = $req->companies_visited;
+		$data->students_placed = $req->students_placed;
+		$data->update();
+
+		return redirect('/admin/PlacementRecord');
+
+	}
+	public function DeletRecord(Request $req){
+
+		$data = Record::where('records.id',$req->id)->first();
+		$data->delete();
+		return redirect('/admin/PlacementRecord');
+	}
+
+	public function editCompany(Request $req){
+
+		$data = Company::where('id',$req->id)->first();
+		return view('admin.editCompany')->with('data',$data);
+		
+	}
+
+	public function updateCompany(Request $req){
+
+
+
+
+		$data = Company::where('id',$req->id)->first();
+
+		$data->name = $req->name;
+		$data->email = $req->email;
+		$data->contact = $req->contact;
+		$data->branch = $req->branch;
+		$data->year = $req->year;
+		$data->student_placed = $req->student_placed;
+		$data->package = $req->package;
+		$data->city = $req->city;
+		$data->state = $req->state;
+		$data->update();
+
+		return redirect('/admin/CompanyRecord');
+	}
+	public function DeletCompany(Request $req){
+
+		$data = Company::where('id',$req->id)->first();
+		
+		$data->delete();
+		return redirect('/admin/CompanyRecord');
 
 	}
 }
