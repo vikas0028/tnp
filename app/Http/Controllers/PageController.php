@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Record;
+use App\Company;
 
 class PageController extends Controller
 {
@@ -11,7 +13,12 @@ class PageController extends Controller
     	return view('pages.recruiter');
     }
     public function showRecord(){
-    	return view('pages.record');
+        
+        $data = Record::all();
+        
+    
+
+    	return view('pages.record')->with('data',$data);
     }
     public function showSpeak(){
     	return view('pages.speak');
