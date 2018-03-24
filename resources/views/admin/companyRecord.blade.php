@@ -72,11 +72,18 @@
 	    					</div>
     						
     					</div>
-    					
     					<div class="row">
-    						<dir class="col-3">
+
+                            <div class="col-4">
+                                <label class="control-label" for="logo">Company Logo</label>
+                                 
+                               <input type="file" name="logo" v-model="logo" required> 
+                            </div>
+                        </div>
+    					<div class="row" style="margin-top: 10px;">
+    						<div class="col-3">
     							<button style="padding-right:30px;padding-left: 30px;" class="btn btn-primary" type="submit" id="add">Add</button>
-    						</dir>
+    						</div>
     					</div>
     				</form>
     			</div>
@@ -178,7 +185,8 @@
 			student_placed:5,
 			package:1.8,
 			city:'abad',
-			state:'guj'
+			state:'guj',
+            logo:''
 			
 
 		},
@@ -196,7 +204,8 @@
                 student_placed: this.student_placed,
                 package: this.package,
                 city: this.city,
-                state: this.state
+                state: this.state,
+                logo: this.logo,
                
             };
             $.ajax({

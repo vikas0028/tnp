@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    
-     protected $fillable = [
+    protected $fillable = [
       		
       		'name',
       		'email',
@@ -18,8 +17,7 @@ class Company extends Model
       		'package',
       		'city',
       		'state',
-      		'company_logo'
+      		'logo'
 
     	];
-
 }

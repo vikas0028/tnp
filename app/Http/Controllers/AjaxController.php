@@ -83,6 +83,13 @@ class AjaxController extends Controller
 		$company->package = $req->package;
 		$company->city = $req->city;
 		$company->state = $req->state;
+		if($req->hasFile('logo')){
+    		$logo = $req->file('logo');
+    		$filename = $req->name. '.' . $logo->getClientOriginalExtension();
+    		$location = public_path('/logo/'.$filename);
+    		Image::make($logo)->save($location);
+    		$movie->logo = $filename;
+    	}
 		
 		$company->save();
 

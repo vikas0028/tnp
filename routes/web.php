@@ -78,5 +78,10 @@ Route::prefix('admin')->group(function(){
 	Route::post('/CompanyRecord/updateCompany', 'recordController@updateCompany');
 	Route::post('/CompanyRecord/DeletCompany', 'recordController@DeletCompany');
 
+	Route::get('/Recruiter','AdminController@Recruiter');
+	Route::post('/Recruiter/insert','AdminController@addRecruiter');
+	Route::get('/Recruiter/edit/{id}','AdminController@editRec');
+	Route::post('/Recruiter/update','AdminController@updateRec');
+	Route::post('/Recruiter/delete','AdminController@deleteRec');
 });
 

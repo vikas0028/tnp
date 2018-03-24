@@ -68,6 +68,13 @@
 	             Company Record</span>
 	        </a>
 	      </li>
+	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
+	        <a class="nav-link" href="/admin/Recruiter">
+	          <!-- <i class="fa fa-fw fa-search"></i> -->
+	          <span class="nav-link-text">
+	             Recruiter Speak</span>
+	        </a>
+	      </li>
 
 	    </ul>
 	    <ul class="navbar-nav sidenav-toggler">

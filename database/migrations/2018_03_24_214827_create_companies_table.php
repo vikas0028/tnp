@@ -24,6 +24,7 @@ class CreateCompaniesTable extends Migration
             $table->Float('package');
             $table->String('city');
             $table->String('state');
+            $table->String('logo');
             $table->timestamps();
         });
     }
