@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Record;
 use App\Company;
 use DB;
+use Image;
 
 class recordController extends Controller
 {
@@ -47,7 +48,34 @@ class recordController extends Controller
 		$data->delete();
 		return redirect('/admin/PlacementRecord');
 	}
+	public function addCompany(Request $req){
+		$company = new Company;
 
+		$company->name = $req->name;
+		$company->email = $req->email;
+		$company->contact = $req->contact;
+		$company->branch = $req->branch;
+		$company->year = $req->year;
+		$company->student_placed = $req->student_placed;
+		$company->package = $req->package;
+		$company->city = $req->city;
+		$company->state = $req->state;
+			
+		if($req->hasFile('logo')){
+    		$logo = $req->file('logo');
+    		$filename = $req->name . '.' . $logo->getClientOriginalExtension();
+    		$location = public_path('/logo/'.$filename);
+    		Image::make($logo)->save($location);
+    		$company->logo = $filename;
+    		
+    		
+    	}
+		
+		$company->save();
+
+		$data = Company::all();
+		return redirect('/admin/CompanyRecord');
+	}
 	public function editCompany(Request $req){
 
 		$data = Company::where('id',$req->id)->first();

@@ -43,8 +43,8 @@ Route::get('/test', function () {
 Route::prefix('api')->group(function(){
 	Route::get('/getFields', 'AjaxController@getFields');
 	Route::post('/getResults', 'AjaxController@getResults');
-	Route::post('/addRecord', 'AjaxController@addRecord');
-	Route::post('/addCompany', 'AjaxController@addCompany');
+	// Route::post('/addRecord', 'AjaxController@addRecord');
+	// Route::post('/addCompany', 'AjaxController@addCompany');
 	
 });
 
@@ -72,7 +72,7 @@ Route::prefix('admin')->group(function(){
 
 
 	Route::get('/CompanyRecord','recordController@showCompany');
-	
+	Route::post('/CompanyRecord/insert','recordController@addCompany');
 
 	Route::get('/CompanyRecord/edit/{id}', 'recordController@editCompany');
 	Route::post('/CompanyRecord/updateCompany', 'recordController@updateCompany');
