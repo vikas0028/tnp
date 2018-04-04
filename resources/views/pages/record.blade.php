@@ -1,19 +1,23 @@
 @extends('main')
 
 @section('content')
-	<h3 align="center"> Placement Record </h3>
+	
 	<ul class="collapsible popout" data-collapsible="accordion">
-		@foreach($data as $d)	
+		@foreach($branch as $b)
+			
 		  <li>
 		    <div class="collapsible-header ">
-		      
-		      Placement Record for {{ $d->year }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-		      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		      Companies Visited {{ $d->companies_visited }}
-		      <span class="badge">Students Placed {{ $d->students_placed }}</span></div>
-		    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+					{{ $b->branch }}		      
+		     </div>
+		    <div class="collapsible-body">
+		    	@foreach($data as $d)
+		    		@if($d->branch == $b->branch)
+		    			{{ $d->name }}
+		    		@endif
+				@endforeach    	
+		    </div>
 		  </li>
+	  	
 	  	@endforeach
 	</ul>
 

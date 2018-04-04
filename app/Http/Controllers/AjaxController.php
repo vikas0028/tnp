@@ -7,6 +7,7 @@ use App\User;
 use App\Marks;
 use App\Record;
 use App\Company;
+use App\Studentplaced;
 use Illuminate\Support\Facades\Input;
 use DB;
 class AjaxController extends Controller
@@ -96,5 +97,46 @@ class AjaxController extends Controller
 		$data = Company::all();
 		return $data;
 
+	}
+
+
+	public function getRecordFields(Request $req){
+
+		$companyCol = array_values(
+    						array_diff(
+    										DB::getSchemaBuilder()->getColumnListing((new Company())->getTable()),
+    										['id', 'created_at','updated_at','logo','branch']
+    								  )
+							);
+
+    	$studentCol = array_values(
+							array_diff(
+									DB::getSchemaBuilder()->getColumnListing((new Studentplaced())->getTable()),
+									['id', 'created_at','updated_at','name','company','package']
+							  )
+					);
+
+    	return ['companies' => $companyCol, 'studentplaceds' => $studentCol];
+
+	}
+	public function getRecordResults(Request $req){
+
+		$query = $req->get('q');
+		$paramFields = $this->getRecordFields($req);
+		$params = array();
+		foreach ($paramFields['companies'] as $key => $value) {
+			array_push( $params, 'companies.'.$value);
+		}
+		foreach ($paramFields['studentplaceds'] as $key => $value) {
+			array_push($params, 'studentplaceds.'.$value);
+		}
+		$params = implode(",", $params);
+		
+		$q = DB::raw("Select ".$params." from companies LEFT JOIN studentplaceds ON companies.name = studentplaceds.company where ".$query );
+		
+		$results = DB::select( $q );
+		// $results = "Select ".$params." from companies LEFT JOIN studentplaceds ON companies.name = studentplaceds.company where ".$query;
+		return $results;
+		
 	}
 }

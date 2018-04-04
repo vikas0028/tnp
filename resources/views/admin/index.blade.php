@@ -51,7 +51,7 @@
 	        <a class="nav-link" href="/admin/search">
 	          <i class="fa fa-fw fa-search"></i>
 	          <span class="nav-link-text">
-	            search</span>
+	           Student search</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
@@ -69,10 +69,24 @@
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
+	        <a class="nav-link" href="/admin/recordsearch">
+	          <i class="fa fa-fw fa-search"></i>
+	          <span class="nav-link-text">
+	           Record search</span>
+	        </a>
+	      </li>
+	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
 	        <a class="nav-link" href="/admin/Recruiter">
 	          <!-- <i class="fa fa-fw fa-search"></i> -->
 	          <span class="nav-link-text">
 	             Recruiter Speak</span>
+	        </a>
+	      </li>
+	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Placement Gallery">
+	        <a class="nav-link" href="/admin/Gallery">
+	          <!-- <i class="fa fa-fw fa-search"></i> -->
+	          <span class="nav-link-text">
+	             Placement Gallery</span>
 	        </a>
 	      </li>
 

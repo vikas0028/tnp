@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Record;
 use App\Company;
+use App\Gallery;
+use App\Studentplaced;
+use DB;
 
 class PageController extends Controller
 {
@@ -14,16 +17,25 @@ class PageController extends Controller
     }
     public function showRecord(){
         
-        $data = Record::all();
-        
+        $branch = DB::table('studentplaceds')->select('branch')->groupBy('branch')->get(); 
+        $data = Studentplaced::all();
     
 
-    	return view('pages.record')->with('data',$data);
+    	return view('pages.record')->with('data',$data)->with('branch',$branch);
     }
     public function showSpeak(){
     	return view('pages.speak');
     }
     public function showGallery(){
-    	return view('pages.gallery');
+        $data = DB::table('galleries')->select('id','year','img')->groupBy('year')->get();
+        
+    	return view('pages.gallery')->with('data',$data);
+    }
+
+    public function viewImage(Request $req){
+
+        $img  = Gallery::Where('galleries.year','=',$req->year)->get();
+
+        return view('pages.image')->with('img',$img);
     }
 }

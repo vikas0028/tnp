@@ -191,6 +191,10 @@
 	          <!-- <label >CGPA</label> -->
 	        </div>
       	</div>
+      	{{-- <div class="row" >
+      		<label>Area Of intrest</label>
+      		<input type="checkbox" name="area_of_intrest[]" ><span>java</span>
+      	</div> --}}
       	<div class="row">
       		<div class="file-field input-field col s6">
 		      <div class="btn">
@@ -224,6 +228,6 @@
  
 <script type="text/javascript">
 	$('select').material_select();
-	$('.gen').material_radio();
+	
 </script>
 @endsection

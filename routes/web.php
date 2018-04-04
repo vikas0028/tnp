@@ -26,6 +26,10 @@ Route::get("/recruiterspeak", 		'PageController@showSpeak')
 
 Route::get("/placementgallery", 	'PageController@showGallery')
 		->name('placementgallery');
+Route::post("/placementgallery/{year}", 	'PageController@viewImage')
+		->name('placementgallery/view');
+
+
 // Route::view("/register",'pages.register')->name('register');
 
 Auth::routes();
@@ -45,7 +49,8 @@ Route::prefix('api')->group(function(){
 	Route::post('/getResults', 'AjaxController@getResults');
 	// Route::post('/addRecord', 'AjaxController@addRecord');
 	// Route::post('/addCompany', 'AjaxController@addCompany');
-	
+	Route::get('/getRecordFields', 'AjaxController@getRecordFields');
+	Route::post('/getRecordResults','AjaxController@getRecordResults');	
 });
 
 Route::prefix('profile')->group(function(){
@@ -61,7 +66,8 @@ Route::prefix('admin')->group(function(){
 
 	Route::get('/', 'AdminController@index')->name('admin');
 	Route::get('/search', 'AdminController@search')->name('admin');
-	
+	//recordsearch
+	Route::get('/recordsearch', 'AdminController@recordsearch');
 	Route::get('/PlacementRecord','recordController@showRecord');
 
 	
@@ -70,7 +76,7 @@ Route::prefix('admin')->group(function(){
 	Route::post('/PlacementRecord/updateRecord', 'recordController@updateRecord');
 	Route::post('/PlacementRecord/DeletRecord', 'recordController@DeletRecord' );
 
-
+	Route::post('import','recordController@importExcel');
 	Route::get('/CompanyRecord','recordController@showCompany');
 	Route::post('/CompanyRecord/insert','recordController@addCompany');
 
@@ -83,5 +89,12 @@ Route::prefix('admin')->group(function(){
 	Route::get('/Recruiter/edit/{id}','AdminController@editRec');
 	Route::post('/Recruiter/update','AdminController@updateRec');
 	Route::post('/Recruiter/delete','AdminController@deleteRec');
+
+
+	Route::get('/Gallery','GalleryController@index');
+	Route::post('/Gallery/insert','GalleryController@insert');
+
+
+	
 });
 

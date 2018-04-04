@@ -13,6 +13,9 @@ class AdminController extends Controller
     public function search(){
     	return view('admin.search');
     }
+    public function recordsearch(){
+        return view('admin.searchrecord');
+    }
     public function Recruiter(){
     	$rec = Recruiter::all();
     	return view('admin.recruiter')->with('rec',$rec);

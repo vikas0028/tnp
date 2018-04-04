@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Marks;
-use Auth;
+use App\Marks; 
+use Auth;  
 class ProfileController extends Controller
 {
      /**

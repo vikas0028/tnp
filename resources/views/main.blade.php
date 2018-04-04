@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.min.css">
     <link rel="shortcut icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style type="text/css">
@@ -64,6 +65,7 @@
 </footer>   
 <script src="/js/jquery.min.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/jquery.nanogallery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
         $(".button-collapse").sideNav();
@@ -72,6 +74,11 @@
       setInterval(function(){
         $('.carousel').carousel('next');
       },2000);
+
+      $("#nanoGallery1").nanoGallery({
+        kind:'flickr',
+        userID:'34858669@N00'
+      });
   })
 </script>
 </script>

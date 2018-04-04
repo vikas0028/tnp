@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Record;
 use App\Company;
+use App\Studentplaced;
 use DB;
 use Image;
+use Excel;
 
 class recordController extends Controller
 {
@@ -20,34 +22,58 @@ class recordController extends Controller
 		$data = Company::orderBy('year','desc')->get();
 		return view('admin.companyRecord')->with('data',$data);
 	}
+
+	public function importExcel(Request $request)
+    {
+        if($request->hasFile('student')){
+            Excel::load($request->file('student')->getRealPath(), function ($reader) {
+                foreach ($reader->toArray() as $key => $row) {
+                    $data['enrollment'] = $row['enrollment'];
+                    $data['name'] = $row['name'];
+                    $data['company'] = $row['company'];
+                    $data['package'] = $row['package'];
+                    $data['batch'] = $row['batch'];
+                    $data['sem'] = $row['sem'];
+                    $data['branch'] = $row['branch'];
+                    
+
+                    if(!empty($data)) {
+                        DB::table('studentplaceds')->insert($data);
+                    }
+                }
+            });
+        }
+
+        return redirect('/admin/PlacementRecord');
+    }
 	
-	public function editRecord(Request $req){
+	// public function editRecord(Request $req){
 
-		$data = Record::where('records.id',$req->id)->first();
+	// 	$data = Record::where('records.id',$req->id)->first();
 		
 		
-		return view('admin.editPlacement')->with('data',$data);
+	// 	return view('admin.editPlacement')->with('data',$data);
 
-	}
-	public function updateRecord(Request $req){
+	// }
+	// public function updateRecord(Request $req){
 
-		$data = Record::where('records.id',$req->id)->first();
+	// 	$data = Record::where('records.id',$req->id)->first();
 
 
-		$data->year = $req->year;
-		$data->companies_visited = $req->companies_visited;
-		$data->students_placed = $req->students_placed;
-		$data->update();
+	// 	$data->year = $req->year;
+	// 	$data->companies_visited = $req->companies_visited;
+	// 	$data->students_placed = $req->students_placed;
+	// 	$data->update();
 
-		return redirect('/admin/PlacementRecord');
+	// 	return redirect('/admin/PlacementRecord');
 
-	}
-	public function DeletRecord(Request $req){
+	// }
+	// public function DeletRecord(Request $req){
 
-		$data = Record::where('records.id',$req->id)->first();
-		$data->delete();
-		return redirect('/admin/PlacementRecord');
-	}
+	// 	$data = Record::where('records.id',$req->id)->first();
+	// 	$data->delete();
+	// 	return redirect('/admin/PlacementRecord');
+	// }
 	public function addCompany(Request $req){
 		$company = new Company;
 
