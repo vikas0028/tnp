@@ -91,6 +91,25 @@
     	</div>
     </div>
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Upload Details
+                </div>
+                <div class="card-body">
+                    <form action="/admin/importCompany" method="POST" enctype="multipart/form-data" >
+                        {{csrf_field()}}
+
+                        <input type="file" name="company">
+                        <button type="submit" class="btn btn-info">Upload</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
     	<div class="col-lg-12">
     		<div class="card mb-3">
     			<div class="card-body" style="overflow-x: scroll;overflow-y: scroll; ">

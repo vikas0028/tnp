@@ -90,11 +90,10 @@
         <img src="img/Awesome%20Mountain.jpeg" alt="">
         <img src="img/Beige%20Lake%20Mt.jpg" alt="">
         <img src="img/keys.jpg" alt=""> -->
-      {{--   @foreach($img as $i)
-            <img src="{{ public_path('/gallery') }}/{{ $i->img }}">
-        @endforeach --}}
-        <img src="http://maheshgoyani.in/images/photography/nature/3.jpg">
-        <img src="http://maheshgoyani.in/images/photography/nature/9.jpg">
+        @foreach($img as $i)
+            <img src="/gallery/{{ $i->img }}">
+        @endforeach
+      
     </div>
     <div id="pager"></div>
     <img id="prev" src="./img/prev1.svg"/>

@@ -89,6 +89,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/Recruiter/edit/{id}','AdminController@editRec');
 	Route::post('/Recruiter/update','AdminController@updateRec');
 	Route::post('/Recruiter/delete','AdminController@deleteRec');
+	Route::post('/importCompany','AdminController@importExcel');
 
 
 	Route::get('/Gallery','GalleryController@index');

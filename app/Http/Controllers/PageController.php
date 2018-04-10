@@ -7,6 +7,7 @@ use App\Record;
 use App\Company;
 use App\Gallery;
 use App\Studentplaced;
+use App\Recruiter;
 use DB;
 
 class PageController extends Controller
@@ -24,7 +25,8 @@ class PageController extends Controller
     	return view('pages.record')->with('data',$data)->with('branch',$branch);
     }
     public function showSpeak(){
-    	return view('pages.speak');
+        $data  = Recruiter::all();
+    	return view('pages.speak')->with('data',$data);
     }
     public function showGallery(){
         $data = DB::table('galleries')->select('id','year','img')->groupBy('year')->get();

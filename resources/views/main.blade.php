@@ -46,7 +46,7 @@
         <li class="tab {{ $ac1 }}"><a class='{{ $ac1 }}' target="_self" href="/" href="#">Home</a></li>
         <li class="tab {{ $ac2 }}"><a class='{{ $ac2 }}' target="_self" href="/placementrecord">Placement Record</a></li>
         <li class="tab {{ $ac3 }}"><a class='{{ $ac3 }}' target="_self" href="/associatedrecruiter">Associated Recruiters</a></li>
-        <li class="tab {{ $ac4 }}"><a class='{{ $ac4 }}' target="_self" href="/recruiterspeak">Recruiters Speak</a></li>
+        <li class="tab {{ $ac4 }}"><a class='{{ $ac4 }}' target="_self" href="/recruiterspeak">Company Feedback</a></li>
         <li class="tab {{ $ac5 }}"><a class='{{ $ac5 }}' target="_self" href="/placementgallery">Placement gallery</a></li>
       </ul>
     </div>
@@ -73,7 +73,7 @@
       
       setInterval(function(){
         $('.carousel').carousel('next');
-      },2000);
+      },3000);
 
       $("#nanoGallery1").nanoGallery({
         kind:'flickr',

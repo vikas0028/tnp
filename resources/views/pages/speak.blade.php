@@ -4,36 +4,24 @@
 {{-- <h3 align="center">Recruiter Speak</h3> --}}
 <div class="row">
     <div class="col s12 m12">
+    	@foreach($data as $d)
 	      <div class="card">
 	        
 	         
 	          <span class="card-title">
-	          <div class="center-align">	<strong>Card Title</strong></div>
+	          <div class="center-align">	<strong>{{ $d->company }}</strong></div>
 	          </span>
 	         
 	       
 	        <div class="card-content">
-	          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+	          <p>{{ $d->speak }}</p>
 	        </div>
 	        <div class="card-action">
-	          <a href="#">Designation</a>
+	          <a href="#">Designation:-  {{ $d->position }}</a>
 	        </div>
 	      </div>
-	      <div class="card">
-	        
-	         
-	          <span class="card-title">
-	          <div class="center-align">	<strong>Card Title</strong></div>
-	          </span>
-	         
-	       
-	        <div class="card-content">
-	          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-	        </div>
-	        <div class="card-action">
-	          <a href="#">Designation</a>
-	        </div>
-	      </div>
+	     @endforeach
+	      
     </div>
   </div>
 
