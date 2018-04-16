@@ -65,7 +65,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
+        // $aoi = (',', $data['area_of_intrest']);
+        $area_of_intrest = implode(',', $data['area_of_intrest']);
+          // die($aoi);  
         $r_hash = explode("-", Uuid::uuid4()->toString() );
 
 
@@ -118,7 +120,8 @@ class RegisterController extends Controller
             'division'  => $data['division'],
             'sem'       => $data['sem'],
             'resume'    => $yoa."/".$fileName,
-            'avatar'    => $yoa."/".$picName
+            'avatar'    => $yoa."/".$picName,
+            'area_of_intrest' =>  implode(',', $data['area_of_intrest']),
         ]);
     }
 }

@@ -127,15 +127,15 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s4">
-	          <input  name="ssc" type="number" class="validate" step="0.01"  min="1" max="100" placeholder="SSC">
+	          <input  name="ssc" type="number" class="validate" step="0.01"  min="0" max="100" placeholder="SSC">
 	          <!-- <label >Pincode</label> -->
 	        </div>
 	        <div class="input-field col s4">
-	          <input  name="hsc" type="number" class="validate" step="0.01" min="1" max="100" placeholder="HSC">
+	          <input  name="hsc" type="number" class="validate" step="0.01" min="0" max="100" placeholder="HSC">
 	          <!-- <label >City</label> -->
 	        </div>
 	        <div class="input-field col s4">
-	          <input  name="diplomacgpa" type="number" class="validate" step="0.01" min="1" max="10" placeholder="Diploma CGPA">
+	          <input  name="diplomacgpa" type="number" class="validate" step="0.01" min="0" max="10" placeholder="Diploma CGPA">
 	          <!-- <label >State</label> -->
 	        </div>
 		</div>
@@ -218,6 +218,36 @@
 		      </div>
 		    </div>
       	</div>
+      	<div class="row">
+      		<h6>Area Of Intrest</h6>
+      		<div>
+      			<p class="col s2">
+			      <input type="checkbox" id="php" name="area_of_intrest[]" value="php"  />
+			      <label for="php"  >PHP</label>
+			    </p>
+			    <p class="col s2">
+			      <input type="checkbox" id="java" value="java" name="area_of_intrest[]" />
+			      <label for="java">JAVA</label>
+			    </p>
+			    <p class="col s2">
+			      <input type="checkbox" id="python" name="area_of_intrest[]" value="python" />
+			      <label for="python">PYTHON</label>
+			    </p>
+			    <p class="col s2">
+			      <input type="checkbox" id="js" name="area_of_intrest[]" value="javascript" />
+			      <label for="js">JAVA SCRIPT</label>
+			    </p>
+			    <p class="col s2">
+			      <input type="checkbox" id="C" name="area_of_intrest[]" value="c/c++" />
+			      <label for="C">C/C++</label>
+			    </p>
+			    <p class="col s2">
+			      <input type="checkbox" id="net" name="area_of_intrest[]"  value=".net" />
+			      <label for="net">.NET</label>
+			    </p>
+      			
+      		</div>
+      	</div>
       	<button class="btn waves-effect waves-light" type="submit" name="action">Save
 		   <!-- <i class="material-icons right">send</i> -->
 		</button>
@@ -227,7 +257,7 @@
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
- <script src="/js/validate.js"></script>
+ {{-- <script src="/js/validate.js"></script> --}}
  
 <script type="text/javascript">
 	$('select').material_select();

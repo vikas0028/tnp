@@ -21,15 +21,15 @@ class PageController extends Controller
     public function showRecord(){
         
         $branch = DB::table('studentplaceds')->select('branch')->groupBy('branch')->get(); 
-        $year = DB::table('Companies')->select('year')->groupBy('year')->get(); 
-        $ECcom2018 = Company::where('Companies.branch','=','EC')->where('Companies.year','=','2018')->get();
-        $ECcom2019 = Company::where('Companies.branch','=','EC')->where('Companies.year','=','2019')->get();
-        $MECHcom2018 = Company::where('Companies.branch','=','MECH')->where('Companies.year','=','2018')->get();
-        $MECHcom2019 = Company::where('Companies.branch','=','MECH')->where('Companies.year','=','2019')->get();
-        $ITcom2018 = Company::where('Companies.branch','=','it')->where('Companies.year','=','2018')->get();
-        $ITcom2019 = Company::where('Companies.branch','=','it')->where('Companies.year','=','2019')->get();
-        $CEcom2018 = Company::where('Companies.branch','=','ce')->where('Companies.year','=','2018')->get();
-        $CEcom2019 = Company::where('Companies.branch','=','ce')->where('Companies.year','=','2019')->get();
+        $year = DB::table('companies')->select('year')->groupBy('year')->get(); 
+        $ECcom2018 = Company::where('companies.branch','=','EC')->where('companies.year','=','2018')->get();
+        $ECcom2019 = Company::where('companies.branch','=','EC')->where('companies.year','=','2019')->get();
+        $MECHcom2018 = Company::where('companies.branch','=','MECH')->where('companies.year','=','2018')->get();
+        $MECHcom2019 = Company::where('companies.branch','=','MECH')->where('companies.year','=','2019')->get();
+        $ITcom2018 = Company::where('companies.branch','=','it')->where('companies.year','=','2018')->get();
+        $ITcom2019 = Company::where('companies.branch','=','it')->where('companies.year','=','2019')->get();
+        $CEcom2018 = Company::where('companies.branch','=','ce')->where('companies.year','=','2018')->get();
+        $CEcom2019 = Company::where('companies.branch','=','ce')->where('companies.year','=','2019')->get();
     
 
     	return view('pages.record',compact('branch','year','data','ECcom2018','ECcom2019','MECHcom2018','MECHcom2019','ITcom2018','ITcom2019','CEcom2018','CEcom2019'));
