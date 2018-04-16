@@ -23,11 +23,11 @@
 	        </div>
 
 	        <div class="input-field col s4">
-	          <input  name="password" type="text" class="validate" placeholder="password" id="pass">
+	          <input  name="password" type="password" class="validate" placeholder="password" id="pass">
 	          <!-- <label >Password</label> -->
 	        </div>
 	        <div class="input-field col s4">
-	          <input  name="confirm_password" type="text" class="validate" placeholder="comfirm password">
+	          <input  name="confirm_password" type="password" class="validate" placeholder="comfirm password">
 	          <!-- <label >Confirm Password</label> -->
 	        </div>
       	</div>
@@ -105,6 +105,9 @@
 			      <option disabled="" selected>Branch</option>
 			      <option value="CE">CE</option>
 			      <option value="IT" selected>IT</option>
+			      <option value="MECH">MECH</option>
+			      <option value="CE" selected>CE</option>
+			      
 			      
 			    </select>
 			</div>

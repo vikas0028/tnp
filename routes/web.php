@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get("/placementrecord", 		'PageController@showRecord')
 		->name('placementrecord');
+Route::get("/placementrecord/{com}", 'PageController@showcompany')->name('placementrecord');
+Route::get("/placementrecord/student/{en}", 'PageController@showstudent')->name('placementrecord');
 
 Route::get("/associatedrecruiter", 	'PageController@showRecruiter')
 		->name('associatedrecruiter');

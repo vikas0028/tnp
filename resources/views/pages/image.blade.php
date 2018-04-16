@@ -96,8 +96,8 @@
       
     </div>
     <div id="pager"></div>
-    <img id="prev" src="./img/prev1.svg"/>
-    <img id="next" src="./img/next1.svg"/>
+    <img id="prev" src="/img/prev1.svg"/>
+    <img id="next" src="/img/next1.svg"/>
 </div>
  
 </body>

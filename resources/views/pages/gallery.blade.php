@@ -4,7 +4,7 @@
 <div class="row">
 	@foreach($data as $d)
 	<div class="col s6 m4">
-	  <div class="card small" style="height: 220px;">
+	  <div class="card small" style="height: 160px;">
 	    <div class="card-image" style="max-height: 84%;">
 	      <img src="./gallery/{{ $d->img }}" >
 	      
