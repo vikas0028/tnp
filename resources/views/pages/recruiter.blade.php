@@ -6,7 +6,7 @@
 	<div class="col s6 m4">
 	  <div class="card small" style="height: 200px;">
 	    <div class="card-image" style="max-height: 84%;">
-	      <img src="/logo/Tatvasoft.png" style="max-height: 800px;" >
+	      <img src="{{url('/logo/Tatvasoft.png')}}" style="max-height: 800px;" >
 	      
 	    </div>
 	   <div  class="center-align">

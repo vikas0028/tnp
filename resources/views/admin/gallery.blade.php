@@ -11,7 +11,7 @@
     </ol>
     <div class="card">
     	<div class="card-body">
-    		<form action="/admin/Gallery/insert" method="POST" enctype="multipart/form-data">
+    		<form action="{{url('/admin/Gallery/insert')}}" method="POST" enctype="multipart/form-data">
     			 {{ csrf_field() }}
     			<div class="form-row">
     				<div class="col-4">

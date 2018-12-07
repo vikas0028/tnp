@@ -11,7 +11,7 @@
     </ol>
     <div class="card">
     	<div class="card-body">
-    		<form action="/admin/Recruiter/insert" method="post" >
+    		<form action="{{url('/admin/Recruiter/insert')}}" method="post" >
     			{{ csrf_field() }}
     			<div class="form-row">
 					<div class="col-3">
@@ -68,10 +68,10 @@
     					<td>{{ $r->company }}</td>
     					<td>{{ $r->position }}</td>
     					<td>
-    						<a href="/admin/Recruiter/edit/{{ $r->id }}" class="btn btn-info">Edit</a>
+    						<a href="{{url('/admin/Recruiter/edit')}}/{{ $r->id }}" class="btn btn-info">Edit</a>
     					</td>
     					<td>
-    						<form action="/admin/Recruiter/delete" method="post">
+    						<form action="{{url('/admin/Recruiter/delete')}}" method="post">
     							{{ csrf_field() }}
     							<input type="hidden" name="id" value="{{ $r->id }}">
     							<button class="btn btn-danger" type="submit">Delete</button>

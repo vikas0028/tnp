@@ -83,7 +83,7 @@
                                     <td>{{ $d->companies_visited }}</td>
                                     <td>{{ $d->students_placed }}</td>
                                     <td>
-                                        <a href="/admin/PlacementRecord/edit/{{$d->id}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{url('/admin/PlacementRecord/edit')}}/{{$d->id}}" class="btn btn-primary">Edit</a>
                                     </td>
                                     <td>
                                             <form method="post" action="{{ url('admin/PlacementRecord/DeletRecord') }}" >
@@ -106,7 +106,7 @@
     @endforeach --}}
 </div>
 </div>
- <script src="/js/vue.js"></script>
+ <script src="{{url('/js/vue.js')}}"></script>
 <script type="text/javascript">
      $.ajaxSetup({
     headers: {

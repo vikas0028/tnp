@@ -10,9 +10,9 @@
     <title></title>
     <!-- Bootstrap core CSS -->
 	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css" rel="stylesheet"> -->
-	<link rel="stylesheet" type="text/css" href="/ven/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{url('/ven/bootstrap/css/bootstrap.min.css')}}">
 	<!-- Custom fonts for this template -->
-	<link href="/ven/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="{{url('/ven/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
 	<!-- Plugin CSS -->
 	
@@ -21,11 +21,11 @@
 
 
 	<!-- Custom styles for this template -->
-	<link href="/css/sb-admin.css" rel="stylesheet">
-	<script src="/js/json2csv.js"></script>
+	<link href="{{url('/css/sb-admin.css')}}" rel="stylesheet">
+	<script src="{{url('/js/json2csv.js')}}"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"> -->
 
-<script src="/js/jquery.min.js"></script>
+<script src="{{url('/js/jquery.min.js')}}"></script>
 <style type="text/css">
 	.custom-file-input:before{
   content: "Browse";
@@ -48,42 +48,42 @@
 	  <div class="collapse navbar-collapse" id="navbarResponsive">
 	    <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-	        <a class="nav-link" href="/admin/search">
+	        <a class="nav-link" href="{{url('/admin/search')}}">
 	          <i class="fa fa-fw fa-search"></i>
 	          <span class="nav-link-text">
 	           Student search</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-	        <a class="nav-link" href="/admin/PlacementRecord">
+	        <a class="nav-link" href="{{url('/admin/PlacementRecord')}}">
 	          <!-- <i class="fa fa-fw fa-search"></i> -->
 	          <span class="nav-link-text">
 	             Placement Record</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-	        <a class="nav-link" href="/admin/CompanyRecord">
+	        <a class="nav-link" href="{{url('/admin/CompanyRecord')}}">
 	          <!-- <i class="fa fa-fw fa-search"></i> -->
 	          <span class="nav-link-text">
 	             Company Record</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-	        <a class="nav-link" href="/admin/recordsearch">
+	        <a class="nav-link" href="{{url('/admin/recordsearch')}}">
 	          <i class="fa fa-fw fa-search"></i>
 	          <span class="nav-link-text">
 	           Record search</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-	        <a class="nav-link" href="/admin/Recruiter">
+	        <a class="nav-link" href="{{url('/admin/Recruiter')}}">
 	          <!-- <i class="fa fa-fw fa-search"></i> -->
 	          <span class="nav-link-text">
 	             Recruiter Speak</span>
 	        </a>
 	      </li>
 	      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Placement Gallery">
-	        <a class="nav-link" href="/admin/Gallery">
+	        <a class="nav-link" href="{{url('/admin/Gallery')}}">
 	          <!-- <i class="fa fa-fw fa-search"></i> -->
 	          <span class="nav-link-text">
 	             Placement Gallery</span>
@@ -117,13 +117,13 @@
 	</div>
 
    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-	<script src="/ven/popper/popper.min.js"></script>
-	<script src="/ven/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{url('/ven/popper/popper.min.js')}}"></script>
+	<script src="{{url('/ven/bootstrap/js/bootstrap.min.js')}}"></script>
 	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"> --></script>
 
 
 	<!-- Plugin JavaScript -->
-	<script src="/ven/jquery-easing/jquery.easing.min.js"></script>
+	<script src="{{url('/ven/jquery-easing/jquery.easing.min.js')}}"></script>
 	<!-- <script src="/ven/chart.js/Chart.min.js"></script> -->
 
 	<!-- Custom scripts for this template -->

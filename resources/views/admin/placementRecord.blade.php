@@ -17,7 +17,7 @@
                     Insert Student Record 
                 </div>
     			<div class="card-body">
-    				<form action="/admin/import" method="POST" enctype="multipart/form-data" >
+    				<form action="{{url('/admin/import')}}" method="POST" enctype="multipart/form-data" >
     					{{csrf_field()}}
 
     					<input type="file" name="student">

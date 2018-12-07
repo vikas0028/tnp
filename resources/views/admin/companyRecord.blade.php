@@ -97,7 +97,7 @@
                     Upload Details
                 </div>
                 <div class="card-body">
-                    <form action="/admin/importCompany" method="POST" enctype="multipart/form-data" >
+                    <form action="{{url('/admin/importCompany')}}" method="POST" enctype="multipart/form-data" >
                         {{csrf_field()}}
 
                         <input type="file" name="company">
@@ -143,7 +143,7 @@
                                     <td>{{ $d->city }},{{ $d->state }}</td>
                                    
                                     <td>
-                                        <a href="/admin/CompanyRecord/edit/{{$d->id}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{url('/admin/CompanyRecord/edit/')}}/{{$d->id}}" class="btn btn-primary">Edit</a>
                                     </td>
                                     <td>
                                             <form method="post" action="{{ url('admin/CompanyRecord/DeletCompany') }}" >

@@ -29,7 +29,7 @@
 			    					@foreach($ITcom2018 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -57,7 +57,7 @@
 			    					@foreach($ITcom2019 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -95,7 +95,7 @@
 			    					@foreach($CEcom2018 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -122,7 +122,7 @@
 			    					@foreach($CEcom2019 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -160,7 +160,7 @@
 			    					@foreach($MECHcom2018 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -187,7 +187,7 @@
 			    					@foreach($MECHcom2019 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -225,7 +225,7 @@
 			    					@foreach($ECcom2018 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>
@@ -252,7 +252,7 @@
 			    					@foreach($ECcom2019 as $i)
 			    					@if($i != "")
 			    					<tr>
-			    						<td><a href="/placementrecord/{{ $i->name }}">{{ $i->name }}</a></td>
+			    						<td><a href="{{url('/placementrecord/')}}/{{ $i->name }}">{{ $i->name }}</a></td>
 			    						<td>{{ $i->student_placed }}</td>
 			    						<td>{{ $i->package }}</td>
 			    					</tr>

@@ -91,13 +91,13 @@
         <img src="img/Beige%20Lake%20Mt.jpg" alt="">
         <img src="img/keys.jpg" alt=""> -->
         @foreach($img as $i)
-            <img src="/gallery/{{ $i->img }}">
+            <img src="{{url('/gallery/')}}/{{ $i->img }}">
         @endforeach
       
     </div>
     <div id="pager"></div>
-    <img id="prev" src="/img/prev1.svg"/>
-    <img id="next" src="/img/next1.svg"/>
+    <img id="prev" src="{{url('/img/prev1.svg')}}"/>
+    <img id="next" src="{{url('/img/next1.svg')}}"/>
 </div>
  
 </body>

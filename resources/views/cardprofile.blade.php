@@ -59,7 +59,7 @@
 	        <div class="col s8 m3">    	
 		        <div class="img-parent-cont z-depth-2" >
 					<!-- <img src="https://goo.gl/bZskn9"> -->
-					<img width="100%" src="/resources/avatars/{{$user->avatar}}">
+					<img width="100%" src="{{url('/resources/avatars/')}}/{{$user->avatar}}">
 		        </div>
 	        </div>
 	        <div class="col s12 m8">

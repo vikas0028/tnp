@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}">
     <link rel="shortcut icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -17,8 +17,8 @@
     	}
     </style>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+<script src="{{asset('/js/jquery.min.js')}}"></script>
+<script src="{{asset('/js/materialize.min.js')}}"></script>
 </head>
 <body>
 
@@ -50,7 +50,7 @@
 <!-- <script src="{{ asset('js/app.js') }}"></script> -->
 
 
-<script src="/js/json2csv.js"></script>
+<script src="{{asset('/js/json2csv.js')}}"></script>
 <script type="text/javascript">
 	// $(document).ready(function(){
 	// 	$(".button-collapse").sideNav('show');

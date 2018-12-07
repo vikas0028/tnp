@@ -1,13 +1,13 @@
 @extends('admin.index')
 
 @section('AdminContent')
-<script src="/js/jquery.min.js"></script>
+<script src="{{url('/js/jquery.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-<script type="text/javascript" src="/js/tableExport.js"></script>
-<script type="text/javascript" src="/js/jquery.base64.js"></script>
-<script type="text/javascript" src="/js/jspdf.js"></script>
-<script type="text/javascript" src="/js/sprintf.js"></script>
-<script type="text/javascript" src="/js/base64.js"></script>
+<script type="text/javascript" src="{{url('/js/tableExport.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/jquery.base64.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/jspdf.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/sprintf.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/base64.js')}}"></script>
 <script type="text/javascript">
   $(document).ready(function(){
 
@@ -180,10 +180,10 @@
     </div>
     </div>
   </div>
- <script src="/js/vue.js"></script>
+ <script src="{{url('/js/vue.js')}}"></script>
  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script> -->
  
- <script type="text/javascript" src="/js/excelexportjs.js"></script>
+ <script type="text/javascript" src="{{url('/js/excelexportjs.js')}}"></script>
  <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script> -->
  <!-- <script type="text/javascript" src="/js/jspdf.js"></script> -->

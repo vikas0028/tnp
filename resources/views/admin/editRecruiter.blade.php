@@ -11,7 +11,7 @@
     </ol>
     <div class="card">
     	<div class="card-body">
-    		<form action="/admin/Recruiter/update" method="post" >
+    		<form action="{{url('/admin/Recruiter/update')}}" method="post" >
     			{{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $rec->id }}">
     			<div class="form-row">

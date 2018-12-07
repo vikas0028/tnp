@@ -33,7 +33,7 @@
 		<div class="row">
 			{{-- <div class="gallery-action right" >
 
-				 <a class="teal btn-floating btn-large waves-effect waves-light k tooltipped" href="/resources/resumes/{{ $user->resume }}" data-position="right" data-delay="10" data-tooltip="Resume" ><i class="material-icons" >description</i></a>
+				 <a class="teal btn-floating btn-large waves-effect waves-light k tooltipped" href="{{url('/resources/resumes/')}}/WWW{{ $user->resume }}" data-position="right" data-delay="10" data-tooltip="Resume" ><i class="material-icons" >description</i></a>
 
 	             <a class="teal btn-floating btn-large waves-effect waves-light k tooltipped" href="{{ url('/profile/edit')
 	            }} " data-position="right" data-delay="10" data-tooltip="Edit Profile" ><i class="material-icons" >edit</i></a>
